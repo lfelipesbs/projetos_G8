@@ -9,7 +9,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 * Silvio Fittipaldi (sfm@cesar.school)
 * Rodrigo Nunes (rbnm@cesar.school)
 * Lucas Santos (lsc7@cesar.school)
-* Felipe Perylo (lfpb@cesar.schol)
+* Felipe Perylo (lfpb@cesar.school)
 * Caio Sena (css4@cesar.school)
 * Erick Belo (@cesar.school)
 * Felipe Soriano (lfsbs@cesar.school)
