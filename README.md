@@ -26,3 +26,8 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
         <li>
     <a href=https://projetofds.atlassian.net/jira/software/projects/EC/boards/3?atlOrigin=eyJpIjoiYmE0MmMxMjc2OTg3NGY2NWE0Yjk4OTlmYzc3ZmU5OTAiLCJwIjoiaiJ9>Link do Jira</a>
   </li>
+    <li>
+    <a  [href=https://miro.com/app/board/uXjVNmC7R-U](https://www.figma.com/file/tyWczuRKjU5u8zRooQhiK1/Untitled?type=design&node-id=0-1&mode=design&t=gKvfu8NQ2PhX4spo-0)=/
+      >Link do Figman</a
+    >
+        <li>
