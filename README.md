@@ -23,4 +23,5 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
       >Link do Miro</a
     >
         <li>
+    <a href=https://projetofds.atlassian.net/jira/software/projects/EC/boards/3?atlOrigin=eyJpIjoiYmE0MmMxMjc2OTg3NGY2NWE0Yjk4OTlmYzc3ZmU5OTAiLCJwIjoiaiJ9>Link do Jira</a>
   </li>
