@@ -6,7 +6,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 
 
 # Equipe:
-* Artur Limna (@cesar.school)
+* Artur Limna (ailb@cesar.school)
 * Caio Sena (css4@cesar.school)
 * Erick Belo (eab2@cesar.school)
 * Henrique Notare (hnfc@cesar.school)
