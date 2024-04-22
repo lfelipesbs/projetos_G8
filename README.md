@@ -6,17 +6,18 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 
 
 # Equipe:
-* Silvio Fittipaldi (sfm@cesar.school)
-* Rodrigo Nunes (rbnm@cesar.school)
-* Lucas Santos (lsc7@cesar.school)
-* Felipe Perylo (lfpb@cesar.school)
+* Artur Limna (@cesar.school)
 * Caio Sena (css4@cesar.school)
 * Erick Belo (eab2@cesar.school)
-* Felipe Soriano (lfsbs@cesar.school)
-* Artur Limna (@cesar.school)
-* Felipe Texeira (lftm@cesar.school)
-* Lucas Souto (lpsc@cesar.school)
 * Henrique Notare (hnfc@cesar.school)
+* Lucas Santos (lsc7@cesar.school)
+* Lucas Souto (lpsc@cesar.school)
+* Felipe Perylo (lfpb@cesar.school)
+* Felipe Soriano (lfsbs@cesar.school)
+* Felipe Texeira (lftm@cesar.school)
+* Rodrigo Nunes (rbnm@cesar.school)
+* Silvio Fittipaldi (sfm@cesar.school)
+
 <p>Links </p>
     <li>
     <a  href=https://miro.com/app/board/uXjVNmC7R-U=/
