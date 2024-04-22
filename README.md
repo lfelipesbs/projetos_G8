@@ -11,7 +11,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 * Lucas Santos (lsc7@cesar.school)
 * Felipe Perylo (lfpb@cesar.school)
 * Caio Sena (css4@cesar.school)
-* Erick Belo (@cesar.school)
+* Erick Belo (eab2@cesar.school)
 * Felipe Soriano (lfsbs@cesar.school)
 * Artur Limna (@cesar.school)
 * Felipe Texeira (lftm@cesar.school)
