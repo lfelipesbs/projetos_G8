@@ -6,17 +6,18 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 
 
 # Equipe:
-* Silvio Fittipaldi (sfm@cesar.school)
-* Rodrigo Nunes (rbnm@cesar.school)
-* Lucas Santos (lsc7@cesar.school)
-* Felipe Perylo (lfpb@cesar.school)
+* Artur Limna (ailb@cesar.school)
 * Caio Sena (css4@cesar.school)
-* Erick Belo (@cesar.school)
-* Felipe Soriano (lfsbs@cesar.school)
-* Artur Limna (@cesar.school)
-* Felipe Texeira (lftm@cesar.school)
-* Lucas Souto (lpsc@cesar.school)
+* Erick Belo (eab2@cesar.school)
 * Henrique Notare (hnfc@cesar.school)
+* Lucas Santos (lsc7@cesar.school)
+* Lucas Souto (lpsc@cesar.school)
+* Felipe Perylo (lfpb@cesar.school)
+* Felipe Soriano (lfsbs@cesar.school)
+* Felipe Texeira (lftm@cesar.school)
+* Rodrigo Nunes (rbnm@cesar.school)
+* Silvio Fittipaldi (sfm@cesar.school)
+
 <p>Links </p>
     <li>
     <a  href=https://miro.com/app/board/uXjVNmC7R-U=/
@@ -25,3 +26,10 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
         <li>
     <a href=https://projetofds.atlassian.net/jira/software/projects/EC/boards/3?atlOrigin=eyJpIjoiYmE0MmMxMjc2OTg3NGY2NWE0Yjk4OTlmYzc3ZmU5OTAiLCJwIjoiaiJ9>Link do Jira</a>
   </li>
+    <li>
+     <a  href=https://www.figma.com/file/tyWczuRKjU5u8zRooQhiK1/Untitled?type=design&node-id=0%3A1&mode=design&t=gKvfu8NQ2PhX4spo-1>Link do Figman</a>
+  </li>
+ <li>
+  <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do site</a>
+</li>
+
