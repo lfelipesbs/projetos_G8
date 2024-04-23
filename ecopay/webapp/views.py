@@ -4,15 +4,14 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 def login(request):
-        
     return render(request, 'front/login.html')
 
 def home_aluno(request):
-
     return render(request, 'home_aluno.html')
-def home_adm(request):
 
+def home_adm(request):
     return render(request, 'home_adm.html')
+
 @csrf_exempt
 def processar_formulario(request):
     if request.method == 'POST':

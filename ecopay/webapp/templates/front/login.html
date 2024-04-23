@@ -5,141 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoPay - Login</title>
-    <style>
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-        }
-
-        #login_box {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            align-items: center;
-            margin-top: 220px;
-
-        }
-
-        input {
-            border: 2px solid black;
-            padding: 10px;
-            background-color: lightblue;
-        }
-
-        input[type=text],
-        input[type=password] {
-            width: 40%;
-        }
-
-        input[type=submit] {
-            width: 20%;
-        }
-
-        #menu {
-            padding-top: 30px;
-            padding-bottom: 30px;
-            background-color: lightblue;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 50px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-bottom: 1px solid black;
-        }
-
-        /*dicas */
-        #dicas_box {
-            margin-top: 220px;
-        }
-
-        #nutri {
-            width: 35%;
-            display: inline-block;
-            border: 1.5px black groove;
-            background-color: lightblue;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        #treino {
-            width: 35%;
-            margin-left: 10%;
-            background-color: lightblue;
-            display: inline-block;
-            border: 1.5px black groove;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        #menu {
-            padding-top: 30px;
-            padding-bottom: 30px;
-            background-color: lightblue;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 50px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-bottom: 1px solid black;
-        }
-
-        #voltar {
-            position: fixed;
-            left: 10px;
-            top: 0;
-        }
-
-        #voltar:hover {
-            cursor: pointer;
-        }
-
-        /*duvidas*/
-        #duvidas_box {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            align-items: center;
-            margin-top: 220px;
-
-        }
-
-        .duvidaescrita {
-            height: 400px;
-            resize: none;
-            padding: 20px;
-            caret-color: rgb(255, 0, 0);
-            background-color: lightblue;
-            border: 2px black solid;
-            font: 14pt black bold;
-        }
-
-        #enviar_duvida {
-            margin-top: 15px;
-        }
-
-        #enviar_duvida:hover {
-            cursor: pointer;
-        }
-
-        /*predefinidos*/
-        .parte-corpo {
-            padding: 8px;
-            background-color: lightblue;
-            margin-top: 6px;
-            border: 1.5px black solid;
-        }
-
-        .parte-corpo:hover {
-            cursor: pointer;
-        }
-
-        #treino_add {
-            background-color: lightblue;
-            margin-top: 20px;
-            border: 1.5px solid black;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
 
 <body>
     <div id="menu">
@@ -151,39 +18,16 @@
                 <form action="/processar_formulario/" method="post" id="enviar">            
                     {% csrf_token %}
                     <input type="radio" id="professor" name="tipo" value="administrador" required>
-                    <label for="professor">Administrador</label><br>
+                    <label for="professor">Admin</label><br>
                     <input type="radio" id="aluno" name="tipo" value="aluno" required>
-                    <label for="aluno">usuario</label><br><br>
+                    <label for="aluno">Usuário</label><br><br>
                     <input type="text" name="usuario" placeholder="usuário" required><br><br>
                     <input type="password" name="senha" placeholder="senha"><br><br>
                     <input type="submit" value="Enviar">
                 </form>
             </div>
+            <script src="/static/script.js"></script>
             
-            <script>
-                document.getElementById('enviar').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Impede o envio padrão do formulário
-                    
-                    var form = new FormData(this);
-                    
-                    fetch('/processar_formulario/', {
-                        method: 'POST',
-                        body: form,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest' // Indica que é uma solicitação Ajax
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.redirect) {
-                            window.location.href = data.redirect;
-                        } else {
-                            console.log('Erro:', data);
-                        }
-                    })
-                    .catch(error => console.error('Erro:', error));
-                });
-            </script>
         </form>
     </div>
 </body>
