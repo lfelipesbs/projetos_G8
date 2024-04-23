@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymConnect - Home</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            align-items: center;
+            text-align: center;
+        }
+
+        #home {
+            margin-top: 220px;
+        }
+
+        #dir {
+            width: 35%;
+            display: inline-block;
+            border: 1.5px black groove;
+            background-color: lightblue;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-left: 10px;
+        }
+
+        #esq {
+            width: 35%;
+            margin-left: 20%;
+            background-color: lightblue;
+            display: inline-block;
+            border: 1.5px black groove;
+            box-sizing: border-box;
+        }
+
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: lightblue;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 1px solid black;
+        }
+
+        #botao {
+            background-color: lightblue;
+            padding: 5px;
+        }
+
+        #botao:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <h2>HOME</h2>
+    </div>
+    <div id="home">
+
+        <div id="dir">
+            <div id="botao" onclick="redirecionarParaLink('./dicas.html')">
+                <h3>DICAS</h3>
+            </div>
+        </div>
+        <div id="dir">
+            <div id="botao" onclick="redirecionarParaLink('./treinospredefinidos.html')">
+                <h3>TREINOS PREDEFINIDOS</h3>
+            </div>
+        </div>
+        <div id="dir">
+            <div id="botao" onclick="redirecionarParaLink('./duvidas.html')">
+                <h3>DÚVIDAS</h3>
+            </div>
+        </div>
+        <div id="dir">
+            <div id="botao" onclick="redirecionarParaLink('./login.html')">
+                <h3>LOGIN</h3>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        function redirecionarParaLink(link) {
+            window.location.href = link;
+        }
+
+
+    </script>
+</body>
+
+</html>

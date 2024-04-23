@@ -146,29 +146,45 @@
         <h2>LOGIN</h2>
     </div>
     <div id="login_box">
-        <form action="" id="enviar">
-            <input type="text" name="msg" placeholder="usuário" type="text" required><br><br>
-            <input type="radio" id="professor" name="tipo" value="professor" required>
-            <label for="professor">Professor</label><br>
-            <input type="radio" id="aluno" name="tipo" value="aluno" required>
-            <label for="aluno">Aluno</label><br><br>
-            <input type="password" type="text" name="msg" placeholder="senha"><br><br>
-            <input type="submit" value="Enviar" id="enviar">
+        <form action="" id="enviar">            
+            <div id="login_box">
+                <form action="/processar_formulario/" method="post" id="enviar">            
+                    {% csrf_token %}
+                    <input type="radio" id="professor" name="tipo" value="administrador" required>
+                    <label for="professor">Administrador</label><br>
+                    <input type="radio" id="aluno" name="tipo" value="aluno" required>
+                    <label for="aluno">Aluno</label><br><br>
+                    <input type="text" name="usuario" placeholder="usuário" required><br><br>
+                    <input type="password" name="senha" placeholder="senha"><br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            
+            <script>
+                document.getElementById('enviar').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Impede o envio padrão do formulário
+                    
+                    var form = new FormData(this);
+                    
+                    fetch('/processar_formulario/', {
+                        method: 'POST',
+                        body: form,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest' // Indica que é uma solicitação Ajax
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.redirect) {
+                            window.location.href = data.redirect;
+                        } else {
+                            console.log('Erro:', data);
+                        }
+                    })
+                    .catch(error => console.error('Erro:', error));
+                });
+            </script>
         </form>
-        <script>
-
-
-            function redirecionarParaLink(link) {
-                window.location.href = link;
-            }
-
-            document.getElementById('enviar').addEventListener('submit', function (event) {
-                event.preventDefault();
-                window.open('/home.html', '_blank');
-            });
-
-
-        </script>
     </div>
 </body>
 
