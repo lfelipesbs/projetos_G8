@@ -15,6 +15,12 @@
             align-items: center;
             height: 100vh;
         }
+        img{
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            align-items: center;
+        }
         h3{
             color: white;
         }
@@ -73,6 +79,9 @@
         #voltar:hover{
             text-decoration: none;
         }
+        #ocorrencias{
+            margin-top: 400px;
+        }
     </style>
 </head>
 <body>
@@ -90,13 +99,15 @@
             {% endfor %}
         </ul>
     </div>-->
-    <div>
+    
+    <div id="ocorrencias">
         <h2>Ocorrências</h2>
-        <ul>
             {% for ocorrencia in ocorrencias %}
-            <li>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }}</li>
+            <h4>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }}</h4>
+            {% if ocorrencia.imagem %}
+            <img src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
+            {% endif %}
             {% endfor %}
-        </ul>
     </div>
 </body>
 </html>

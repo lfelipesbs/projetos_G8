@@ -23,7 +23,9 @@ def home_aluno(request):
     return render(request, 'home_aluno.html')
 
 def home_adm(request):
-    return render(request, 'home_adm.html')
+    usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
+    ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
+    return render(request, 'home_adm.html', {'usuarios': usuarios, 'ocorrencias': ocorrencias})
 
 @csrf_exempt
 def processar_formulario(request):

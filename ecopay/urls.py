@@ -11,4 +11,8 @@ urlpatterns = [
     path('home_adm/', views.home_adm, name="home_adm"),
     path('processar_formulario/', views.processar_formulario, name="processar_formulario"),
     path('registrar_ocorrencia/', views.registrar_ocorrencia, name="registrar_ocorrencia"),  # Adicionando a nova rota
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+# Adicionando as URLs de arquivos estáticos e de mídia
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

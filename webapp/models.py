@@ -10,6 +10,7 @@ class Dados(models.Model):
     tipo = models.CharField(max_length=50, choices=TIPO_USUARIO_CHOICES, default='usuario')
     usuario = models.CharField(max_length=50)
     senha = models.CharField(max_length=50)
+    imagem = models.ImageField(upload_to='usuarios/', null=True, blank=True)  # Campo para armazenar a imagem do usuário
 
     def __str__(self):
         # Método para retornar uma string representativa do objeto
