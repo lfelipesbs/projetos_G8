@@ -3,106 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPay - Login</title>
+    <title>Home - Admin</title>
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            align-items: center;
             text-align: center;
-            margin: 0; /* Remove margin to fix the menu to the top properly */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-
+        h3{
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            
+        }
+        a:hover{
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
         #menu {
             padding-top: 30px;
             padding-bottom: 30px;
-            background-color: lightblue;
+            background-color: rgb(37, 37, 37);
             width: 100%;
             text-align: center;
-            margin-bottom: 50px;
             position: fixed;
             top: 0;
             left: 0;
-            border-bottom: 1px solid black;
-            z-index: 1000; /* Make sure the menu is above other content */
+            border-bottom: 3px solid rgb(0, 255, 30);
         }
 
-        #login_box {
-            width: 35%; /* Adjust width to match your design */
-            display: inline-block;
-            border: 1.5px black groove;
-            background-color: lightblue;
-            box-sizing: border-box;
-            margin-top: 140px; /* Adjust margin top to push down under fixed menu */
-            padding: 20px;
-            margin-left: auto;
-            margin-right: auto;
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
+        #menu ul li {
+            display: inline;
+            margin-right: 20px;
         }
 
-        .input-group {
-            margin: 10px 0;
-        }
-
-        .input-group input[type="radio"] {
-            margin-right: 5px;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        input[type="submit"] {
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        input[type="submit"] {
-            background-color: #007BFF;
+        .button {
+            background-color: #007BFF; /* Blue background for the button */
             color: white;
-            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
             border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+        #voltar{
+            margin: 0 auto;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 6px 16px 6px 12px;
         }
-
-        a#login-link {
-            color: inherit; /* Inherit the text color from the parent element */
-            text-decoration: none; /* No underline */
-        }
-
-        a#login-link:hover {
-            text-decoration: underline; /* Underline on hover for better indication */
+        #voltar:hover{
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div id="menu">
-        <a id="login-link" href="/login">LOGIN</a>
-        <!-- Botão para registrar ocorrência, visível na página de login -->
-        <a href="{% url 'registrar_ocorrencia' %}" class="btn btn-info">Registrar Ocorrência</a>
-    </div>
-    <div id="login_box">
-        <!-- Formulário para processamento do login -->
-        <form action="/processar_formulario/" method="post" id="enviar">
-            {% csrf_token %}
-            <div class="input-group">
-                <input type="radio" id="professor" name="tipo" value="administrador" required>
-                <label for="professor">Admin</label>
-            </div>
-            <div class="input-group">
-                <input type="radio" id="aluno" name="tipo" value="aluno" required>
-                <label for="aluno">Usuário</label>
-            </div>
-            <input type="text" name="usuario" placeholder="usuário" required>
-            <input type="password" name="senha" placeholder="senha" required>
-            <input type="submit" value="Enviar">
-        </form>
+        <ul>
+            <h3>Página do administrador</h3>
+        </ul>
+        <a href="{% url 'login' %}" class="button" id=voltar>❮</a> <!-- Assumindo que a rota 'login' está definida em urls.py -->
     </div>
 </body>
 </html>
