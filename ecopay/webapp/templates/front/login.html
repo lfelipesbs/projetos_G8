@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPay - Login</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+
+<body>
+    <div id="menu">
+        <h2>LOGIN</h2>
+    </div>
+    <div id="login_box">
+        <form action="" id="enviar">            
+            <div id="login_box">
+                <form action="/processar_formulario/" method="post" id="enviar">            
+                    {% csrf_token %}
+                    <input type="radio" id="professor" name="tipo" value="administrador" required>
+                    <label for="professor">Admin</label><br>
+                    <input type="radio" id="aluno" name="tipo" value="aluno" required>
+                    <label for="aluno">Usuário</label><br><br>
+                    <input type="text" name="usuario" placeholder="usuário" required><br><br>
+                    <input type="password" name="senha" placeholder="senha"><br><br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <script src="/static/script.js"></script>
+            
+        </form>
+    </div>
+</body>
+
+</html>
