@@ -82,5 +82,21 @@
         </ul>
         <a href="{% url 'login' %}" class="button" id=voltar>❮</a> <!-- Assumindo que a rota 'login' está definida em urls.py -->
     </div>
+    <!--<div>
+        <h2>Usuários</h2>
+        <ul>
+            {% for usuario in usuarios %}
+            <li>{{ usuario.tipo }} - {{ usuario.usuario }}</li>
+            {% endfor %}
+        </ul>
+    </div>-->
+    <div>
+        <h2>Ocorrências</h2>
+        <ul>
+            {% for ocorrencia in ocorrencias %}
+            <li>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

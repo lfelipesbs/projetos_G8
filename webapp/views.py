@@ -62,3 +62,8 @@ def registrar_ocorrencia(request):
         return render(request, 'home_aluno.html', {'message': 'Ocorrência registrada com sucesso!'})
     else:
         return render(request, 'home_aluno.html', {'error': 'Método não suportado'})
+    
+def home_adm(request):
+    usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
+    ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
+    return render(request, 'home_adm.html', {'usuarios': usuarios, 'ocorrencias': ocorrencias})
