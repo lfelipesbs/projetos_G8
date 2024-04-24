@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Ocorrência</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+        }
+
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: lightblue;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 1px solid black;
+            z-index: 1000;
+        }
+
+        form {
+            width: 35%;
+            margin: 140px auto 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border: 1.5px black groove;
+            background-color: lightblue;
+            box-sizing: border-box;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group input[type="radio"],
+        .input-group label {
+            margin-right: 5px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            padding: 10px;
+            margin-top: 10px;
+            width: calc(100% - 20px); /* Subtract padding from width */
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <a href="/">HOME</a> <!-- Example Home link, adjust as needed -->
+    </div>
+    <h1>Registrar Ocorrência</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="input-group">
+            <label for="descricao">Descrição da Ocorrência:</label>
+            <textarea id="descricao" name="descricao" rows="4" required></textarea>
+        </div>
+        <div class="input-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required>
+        </div>
+        <div class="input-group">
+            <label for="tipo_de_lixo">Tipo de Lixo:</label>
+            <select id="tipo_de_lixo" name="tipo_de_lixo" required>
+                <option value="orgânico">Orgânico</option>
+                <option value="reciclável">Reciclável</option>
+                <option value="eletrônicos">Eletrônicos</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

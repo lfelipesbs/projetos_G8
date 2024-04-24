@@ -82,7 +82,11 @@
     </style>
 </head>
 <body>
-    <div id="menu"><a id="login-link" href="/login">LOGIN</a></div>
+    <div id="menu">
+        <a id="login-link" href="/login">LOGIN</a>
+        <!-- Botão para registrar ocorrência, visível na página de login -->
+        <a href="{% url 'registrar_ocorrencia' %}" class="btn btn-info">Registrar Ocorrência</a>
+    </div>
     <div id="login_box">
         <!-- Formulário para processamento do login -->
         <form action="/processar_formulario/" method="post" id="enviar">

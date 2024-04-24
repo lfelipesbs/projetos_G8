@@ -23,7 +23,7 @@ def home_aluno(request):
 
 def home_adm(request):
     return render(request, 'home_adm.html')
-    
+
 @csrf_exempt
 def processar_formulario(request):
     if request.method == 'POST':
@@ -45,3 +45,19 @@ def processar_formulario(request):
 
     # Retorna um erro se o método da requisição não for POST
     return JsonResponse({'error': 'Método não permitido'}, status=405)
+    
+def registrar_ocorrencia(request):
+    if request.method == 'GET':
+        return render(request, 'registrarocorrencia.html')
+    elif request.method == 'POST':
+        descricao = request.POST.get('descricao')
+        endereco = request.POST.get('endereco')
+        tipo_de_lixo = request.POST.get('tipo_de_lixo')
+        
+        # Supondo que você tenha um modelo para salvar estas ocorrências
+        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo)
+        ocorrencia.save()
+        
+        return render(request, 'home_aluno.html', {'message': 'Ocorrência registrada com sucesso!'})
+    else:
+        return render(request, 'home_aluno.html', {'error': 'Método não suportado'})
