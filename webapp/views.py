@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
+from .models import Ocorrencia
 
 def login(request):
     return render(request, 'front/login.html')
@@ -45,7 +46,7 @@ def processar_formulario(request):
 
     # Retorna um erro se o método da requisição não for POST
     return JsonResponse({'error': 'Método não permitido'}, status=405)
-    
+
 def registrar_ocorrencia(request):
     if request.method == 'GET':
         return render(request, 'registrarocorrencia.html')

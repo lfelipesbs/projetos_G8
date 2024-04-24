@@ -14,3 +14,12 @@ class Dados(models.Model):
     def __str__(self):
         # Método para retornar uma string representativa do objeto
         return f"Tipo: {self.tipo} - Nome do usuário: {self.usuario} - Senha: {self.senha}"
+
+class Ocorrencia(models.Model):
+    descricao = models.TextField()
+    endereco = models.CharField(max_length=255)
+    tipo_de_lixo = models.CharField(max_length=100)
+    imagem = models.ImageField(upload_to='ocorrencias/', null=True, blank=True)  # Armazena na pasta /media/ocorrencias
+
+    def __str__(self):
+        return f"{self.endereco} - {self.tipo_de_lixo}"
