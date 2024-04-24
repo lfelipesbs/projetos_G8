@@ -32,4 +32,12 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
  <li>
   <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do site</a>
 </li>
-
+<h2> Screencast 01 do figma</h2> 
+<a href="https://youtu.be/qlVSrfyOJuQ">
+  <img src="https://i.ibb.co/ZJ0qns9/BEEMO.png" />
+</a>
+<br> 
+<h2> Print do Backlog </h2> 
+ <img src="https://i.ibb.co/1z7T79s/Backlog-1.png" />
+ <h2> Print do Quadro Jira </h2> 
+  <img src="https://i.ibb.co/3FnPt2W/Captura-de-tela-2024-03-18-110610.png" alt="Captura-de-tela-2024-03-18-110610" border="0"></a>
