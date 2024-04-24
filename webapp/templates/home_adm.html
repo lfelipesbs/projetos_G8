@@ -13,11 +13,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
         img{
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: auto;
             text-align: center;
             align-items: center;
         }
@@ -80,7 +79,16 @@
             text-decoration: none;
         }
         #ocorrencias{
-            margin-top: 90vw;
+            width: 65%; /* Adjust width to match your design */
+            display: inline-block;
+            border: 3px rgb(0, 255, 30) groove;
+            background-color: rgb(37, 37, 37);
+            box-sizing: border-box;
+            margin-top: 140px; /* Adjust margin top to push down under fixed menu */
+            padding: 20px;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -99,7 +107,9 @@
             {% endfor %}
         </ul>
     </div>-->
-    
+    <div id="espaco">
+
+    </div>
     <div id="ocorrencias">
         <h2>Ocorrências</h2>
             {% for ocorrencia in ocorrencias %}
