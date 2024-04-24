@@ -57,14 +57,16 @@ def registrar_ocorrencia(request):
         endereco = request.POST.get('endereco')
         tipo_de_lixo = request.POST.get('tipo_de_lixo')
         
-        # Supondo que você tenha um modelo para salvar estas ocorrências
-        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo)
+        # Acessa o arquivo de imagem enviado
+        imagem = request.FILES.get('imagem')
+        
+        # Cria uma nova instância do modelo Ocorrencia e salva os dados, incluindo a imagem
+        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem)
         ocorrencia.save()
         
         return render(request, 'home_aluno.html', {'message': 'Ocorrência registrada com sucesso!'})
     else:
         return render(request, 'home_aluno.html', {'error': 'Método não suportado'})
-    
 def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
