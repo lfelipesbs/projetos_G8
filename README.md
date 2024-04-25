@@ -37,4 +37,9 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
   <img src="/foto_figma.png" />
 </a>
 <br> 
+<h2> Screencast 01 do figma</h2> 
+<a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=a6c7a878-95b8-41bb-96fe-bb2a4ac3fb6d">
+  <img src="/foto_figma.png" />
+</a>
+<br> 
 
