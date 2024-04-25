@@ -27,6 +27,12 @@
             z-index: 1000; /* Make sure the menu is above other content */
         }
 
+        #logo{
+            width: 50%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
         #login_box {
             width: 35%; /* Adjust width to match your design */
             display: inline-block;
@@ -71,7 +77,34 @@
 
         input[type="submit"]:hover {
             background-color: #0056b3;
-        }
+        }input[type="radio"] {
+        /* Esconde os checkboxes padrão */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px; /* Define a largura do checkbox */
+        height: 20px; /* Define a altura do checkbox */
+        border: 2px solid rgb(0, 255, 30); /* Adiciona uma borda */
+        border-radius: 5px; /* Adiciona bordas arredondadas */
+        outline: none; /* Remove a borda de foco padrão */
+        cursor: pointer; /* Muda o cursor ao passar por cima */
+        margin-right: 55px; /* Espaçamento à direita */
+    }
+
+    /* Estilizando os labels dos checkboxes */
+    label {
+        font-size: 16px; /* Define o tamanho da fonte */
+    }
+
+    /* Estilizando os checkboxes quando estão marcados */
+    input[type="radio"]:checked {
+        background-color: rgb(0, 255, 30); /* Cor de fundo quando marcado */
+    }
+
+    /* Adicionando um estilo hover para os checkboxes */
+    input[type="radio"]:hover {
+        background-color: #0d8c46; /* Cor de fundo ao passar o mouse */
+    }
     </style>
 </head>
 <!DOCTYPE html>
@@ -83,8 +116,9 @@
     <link rel="stylesheet" href="style.css"> <!-- Ajuste o caminho conforme necessário -->
 </head>
 <body>
-    <div id="menu"><h2>LOGIN</h2></div>
+    <div id="menu"><h2>ECOPAY</h2></div>
     <div id="login_box">
+        <img src="{{ imagem_url }}" alt="Logo" id="logo">
         <!-- Formulário para processamento do login -->
         <form action="/processar_formulario/" method="post" id="enviar">
             {% csrf_token %}
