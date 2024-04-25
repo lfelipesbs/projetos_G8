@@ -47,7 +47,7 @@ jobs:
         with:
           name: python-app
           path: |
-            projetos_G8
+            ecopay
             !venv/
 
   deploy:
