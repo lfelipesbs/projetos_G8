@@ -38,7 +38,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 </a>
 <br> 
 <h2> Diagrama de Atividades </h2> 
-<a href="ecopay_diagrama.pdf">
+<a href="file://C:/Users/beloa/Downloads/EcoPay%20Diagrama.pdf">
   <img src="/Foto do diagrama de atividades.png" />
 </a>
 <br> 
