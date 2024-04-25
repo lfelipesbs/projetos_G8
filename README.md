@@ -33,7 +33,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
   <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do site</a>
 </li>
 <h2> Screencast 01 do figma</h2> 
-<a href="https://youtu.be/qlVSrfyOJuQ">
+<a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=fa281468-7059-4882-937c-757c1910efed">
   <img src="https://i.ibb.co/ZJ0qns9/BEEMO.png" />
 </a>
 <br> 
