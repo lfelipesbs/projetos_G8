@@ -32,7 +32,7 @@ jobs:
 
       - name: Cleaning testing files
         run: |
-          cd projetos_G8/
+          cd ecopay/
           rm db.sqlite3
           rm .env
           cd ..
