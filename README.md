@@ -32,9 +32,10 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
  <li>
   <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do site</a>
 </li>
-<h2> Screencast 01 do figma</h2> 
+<h2> Screencast do figma</h2> 
 <a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=fa281468-7059-4882-937c-757c1910efed">
-  <img src="https://i.ibb.co/ZJ0qns9/BEEMO.png" />
+  <img src="![Screenshot 2024-04-24 211819](https://github.com/Caiosenas2101/projetos_G8/assets/161330845/73f5f43e-8438-4726-af90-ebbca1344163)
+" />
 </a>
 <br> 
 
