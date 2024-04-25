@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
 
 TARGET_ENV = os.getenv('TARGET_ENV')
-NOT_PROD = not TARGET_ENV.lower().startswith('prod')
+NOT_PROD = not TARGET_ENV.lower().startswith('prod1')
 
 if NOT_PROD:
     DEBUG = True
