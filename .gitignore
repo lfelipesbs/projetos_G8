@@ -3,7 +3,7 @@
 *.pyc
 __pycache__
 
-media
+
 
 *.bak
 .idea/**/workspace.xml
