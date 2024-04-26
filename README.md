@@ -41,6 +41,10 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=a6c7a878-95b8-41bb-96fe-bb2a4ac3fb6d">
   <img src="/imagem/foto_figma.png" />
 </a>
+<h2> Screencast 01 do Site (link na imagem)</h2> 
+<a href="https://www.loom.com/share/1a9d51f21d434de4ae08528ff912f921?sid=0bb37e7b-18b0-4109-a111-74476d766a20">
+  <img src="/imagem/foto_figma.png" />
+</a>
 <br> 
 <h2> Diagrama de Atividades </h2> 
 <a href="/imagem/foto_do_diagrama_de_atividades.png">
