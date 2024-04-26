@@ -25,19 +25,19 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
     >
           <li>
   <a  href=https://miro.com/app/board/uXjVNmC7R-U=/
-      >Link do Miro</a
+      >Link do Miro (idealização do projeto)</a
    >
           <li>
     <a href=https://projetofds.atlassian.net/jira/software/projects/EC/boards/3?atlOrigin=eyJpIjoiYmE0MmMxMjc2OTg3NGY2NWE0Yjk4OTlmYzc3ZmU5OTAiLCJwIjoiaiJ9=/
         >Link do Jira (Historias)</a>
   </li>
     <li>
-     <a  href=https://www.figma.com/file/tyWczuRKjU5u8zRooQhiK1/Untitled?type=design&node-id=0%3A1&mode=design&t=gKvfu8NQ2PhX4spo-1>Link do Figma</a>
+     <a  href=https://www.figma.com/file/tyWczuRKjU5u8zRooQhiK1/Untitled?type=design&node-id=0%3A1&mode=design&t=gKvfu8NQ2PhX4spo-1>Link do Figma (Protótipo de Baixa)</a>
   </li>
  <li>
   <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do google sites</a>
 </li>
-<h2> Screencast 01 do figma</h2> 
+<h2> Screencast 01 do figma (link na imagem)</h2> 
 <a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=a6c7a878-95b8-41bb-96fe-bb2a4ac3fb6d">
   <img src="/foto_figma.png" />
 </a>
@@ -46,21 +46,15 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <a href="foto_do_diagrama_de_atividades.png">
   <img src="/foto_do_diagrama_de_atividades.png" />
 </a>
-<br> 
-<h2> Issue/BugTracker </h2> 
-<a href="![bugtracker](https://github.com/lfelipesbs/projetos_G8/assets/142416610/f27b4b0a-58c1-48cf-912e-9debc2bd78c5)
-">
-  <img src="/bugtracker.png" />
-</a>
-<a href="![bugtracker2](https://github.com/lfelipesbs/projetos_G8/assets/142416610/d77b2a3e-daf3-4784-a8f3-7eec6a3ae2ec)
-">
-  <img src="/bugtracker2.png" />
-</a>
-<a href="![bugtracker3](https://github.com/lfelipesbs/projetos_G8/assets/142416610/0b429b0d-90b9-4fb1-8113-72a94f7d76fc)
 
-">
-  <img src="/bugtracker3.png" />
-</a>
+<h2> Print do Bug Tracker </h2> 
+<img src="/bugtracker.png" />
+<img src="/bugtracker2.png" />
+<img src="/bugtracker3.png" />
+<img src="/bugtracker4.jpg" />
+<img src="/bugtracker5.jpg" />
+<img src="/bugtracker6.jpg" />
+
 <br> 
 
 
