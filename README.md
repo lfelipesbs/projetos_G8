@@ -39,21 +39,21 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 </li>
 <h2> Screencast 01 do figma (link na imagem)</h2> 
 <a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=a6c7a878-95b8-41bb-96fe-bb2a4ac3fb6d">
-  <img src="/foto_figma.png" />
+  <img src="/imagem/foto_figma.png" />
 </a>
 <br> 
 <h2> Diagrama de Atividades </h2> 
-<a href="foto_do_diagrama_de_atividades.png">
-  <img src="/foto_do_diagrama_de_atividades.png" />
+<a href="/imagem/foto_do_diagrama_de_atividades.png">
+  <img src="/imagem/foto_do_diagrama_de_atividades.png" />
 </a>
 
 <h2> Print do Bug Tracker </h2> 
-<img src="/bugtracker.png" />
-<img src="/bugtracker2.png" />
-<img src="/bugtracker3.png" />
-<img src="/bugtracker4.jpg" />
-<img src="/bugtracker5.jpg" />
-<img src="/bugtracker6.jpg" />
+<img src="/imagem/bugtracker.png" />
+<img src="/imagem/bugtracker2.png" />
+<img src="/imagem/bugtracker3.png" />
+<img src="/imagem/bugtracker4.jpg" />
+<img src="/imagem/bugtracker5.jpg" />
+<img src="/imagem/bugtracker6.jpg" />
 
 <br> 
 
