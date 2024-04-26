@@ -52,6 +52,15 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 ">
   <img src="/bugtracker.png" />
 </a>
+<a href="![bugtracker2](https://github.com/lfelipesbs/projetos_G8/assets/142416610/d77b2a3e-daf3-4784-a8f3-7eec6a3ae2ec)
+">
+  <img src="/bugtracker2.png" />
+</a>
+<a href="![bugtracker3](https://github.com/lfelipesbs/projetos_G8/assets/142416610/0b429b0d-90b9-4fb1-8113-72a94f7d76fc)
+
+">
+  <img src="/bugtracker3.png" />
+</a>
 <br> 
 
 
