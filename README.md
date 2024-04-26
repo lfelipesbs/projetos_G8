@@ -37,19 +37,30 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
  <li>
   <a href="https://sites.google.com/d/1-6DGXvwyUoOTxoCo1Pbt51tpVXd0R_zB/p/1zcXPBehIi9aOACSmOZUIbssWT2dk16Kx/edit?pli=1">Link do google sites</a>
 </li>
+<br> 
+<br>
+<br>
 <h2> Screencast 01 do figma (link na imagem)</h2> 
 <a href="https://www.loom.com/share/91b5a2932fc4480691c97e5671768af3?sid=a6c7a878-95b8-41bb-96fe-bb2a4ac3fb6d">
   <img src="/imagem/foto_figma.png" />
 </a>
+<br> 
+<br>
+<br>
 <h2> Screencast 01 do Site (link na imagem)</h2> 
 <a href="https://www.loom.com/share/1a9d51f21d434de4ae08528ff912f921?sid=0bb37e7b-18b0-4109-a111-74476d766a20">
   <img src="/imagem/imagem_Site.png" />
 </a>
 <br> 
+<br>
+<br>
 <h2> Diagrama de Atividades </h2> 
 <a href="/imagem/foto_do_diagrama_de_atividades.png">
   <img src="/imagem/foto_do_diagrama_de_atividades.png" />
 </a>
+<br> 
+<br>
+<br>
 
 <h2> Print do Bug Tracker </h2> 
 <img src="/imagem/bugtracker.png" />
