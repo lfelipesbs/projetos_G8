@@ -47,4 +47,11 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
   <img src="/foto_do_diagrama_de_atividades.png" />
 </a>
 <br> 
+<h2> Issue/BugTracker </h2> 
+<a href="![bugtracker](https://github.com/lfelipesbs/projetos_G8/assets/142416610/f27b4b0a-58c1-48cf-912e-9debc2bd78c5)
+">
+  <img src="/bugtracker.png" />
+</a>
+<br> 
+
 
