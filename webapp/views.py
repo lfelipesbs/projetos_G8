@@ -7,7 +7,7 @@ from .models import Ocorrencia
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
-    imagem_url = '/m/logo.png'  # Atualize o caminho conforme necessário
+    imagem_url = '/media/logo.png'  # Atualize o caminho conforme necessário
     return render(request, 'front/login.html', {'imagem_url': imagem_url})
 
 def home_aluno(request):
