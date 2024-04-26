@@ -105,3 +105,4 @@ local_settings.py
 _local_settings.py
 static/
 db.sqlite3
+db.sqlite3
