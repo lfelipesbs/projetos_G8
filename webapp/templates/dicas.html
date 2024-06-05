@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0;
+            list-style-type: none;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dicas para Combater o Acúmulo de Lixo</h1>
+    <ul>
+        <li>1. Reduza o uso de plásticos descartáveis, optando por alternativas reutilizáveis.</li>
+        <li>2. Recicle sempre que possível, separando o lixo reciclável do lixo orgânico.</li>
+        <li>3. Compre produtos a granel para evitar embalagens desnecessárias.</li>
+        <li>4. Reutilize potes e sacolas plásticas em vez de jogá-los fora.</li>
+        <li>5. Doe itens que você não usa mais em vez de descartá-los.</li>
+        <li>6. Composte restos de comida para reduzir o lixo orgânico.</li>
+        <li>7. Participe de mutirões de limpeza em sua comunidade.</li>
+        <li>8. Eduque outras pessoas sobre a importância da reciclagem e redução de resíduos.</li>
+        <li>9. Use produtos de limpeza e higiene pessoal ecológicos.</li>
+        <li>10. Evite o desperdício de alimentos, planejando suas refeições e comprando apenas o necessário.</li>
+    </ul>
+    <a href="{% url 'home_aluno' %}" class="back-button">Voltar</a>
+</body>
+</html>

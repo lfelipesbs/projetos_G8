@@ -73,3 +73,6 @@ def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
     return render(request, 'home_adm.html', {'usuarios': usuarios, 'ocorrencias': ocorrencias})
+
+def dicas(request):
+    return render(request, 'dicas.html')
