@@ -3,7 +3,7 @@
 *.pyc
 __pycache__
 
-
+media
 
 *.bak
 .idea/**/workspace.xml
@@ -104,3 +104,5 @@ env
 local_settings.py
 _local_settings.py
 static/
+db.sqlite3
+db.sqlite3
