@@ -11,7 +11,3 @@ class LoginForm(forms.Form):
     senha = forms.CharField(widget=forms.PasswordInput)
     tipo = forms.CharField(widget=forms.HiddenInput(), required=False)
 
-class CadastroForm(forms.ModelForm):
-    class Meta:
-        model = Dados
-        fields = ['nome', 'senha', 'tipo']

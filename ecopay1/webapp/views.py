@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
 from .models import Ocorrencia
-from forms import LoginForm,CadastroForm
+from .forms import LoginForm,CadastroForm
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -13,7 +13,7 @@ def login(request):
 
 def cadastro(request):
 
-    return render(request, 'cadastro.html')
+    return render(request, 'front/cadastro.html')
 
 def vizualizar_ocorrencia(request):
 

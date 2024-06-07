@@ -173,8 +173,8 @@
         </div>
         {% endfor %}
         <form action="/fazer_login/" method="post">
-            
             {% csrf_token %}
+           
             <div class="input-group">
                 <input type="radio" id="administrador" name="tipo" value="administrador" required>
                 <label for="administrador">Administrador</label>

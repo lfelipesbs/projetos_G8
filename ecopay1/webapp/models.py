@@ -8,13 +8,13 @@ class Dados(models.Model):
     )
 
     tipo = models.CharField(max_length=50, choices=TIPO_USUARIO_CHOICES, default='usuario')
-    usuario = models.CharField(max_length=50)
+    nome = models.CharField(max_length=50)
     senha = models.CharField(max_length=50)
     imagem = models.ImageField(upload_to='usuarios/', null=True, blank=True)  # Campo para armazenar a imagem do usuário
 
     def __str__(self):
         # Método para retornar uma string representativa do objeto
-        return f"Tipo: {self.tipo} - Nome do usuário: {self.usuario} - Senha: {self.senha}"
+        return f"Tipo: {self.tipo} - Nome do usuário: {self.nome} - Senha: {self.senha}"
 
 class Ocorrencia(models.Model):
     descricao = models.TextField()
