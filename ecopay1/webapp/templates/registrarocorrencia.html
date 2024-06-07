@@ -93,14 +93,61 @@
             height: 100%;
             object-fit: cover;
         }
-            
+        footer {
+            background-color: rgb(37, 37, 37);;
+            color: white;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 10px;
+            color: rgb(0, 255, 30); /* Cor do texto do título */
+        }
+        
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Estilos para os links */
+        .footer-section a {
+            color: white; /* Cor dos links */
+        }
+        
+        .footer-section a:hover {
+            color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+        }
     </style>
 </head>
 <body>
     <div id="menu">
-        <a href="/">Página Inicial</a> 
-    </div>
+        
+        <a href="{% url 'home_aluno' %}"> 
+            <h2 id="voltar" style="color: white;">⇦</h2>
+        </a>
+    
     <h1>Registrar Ocorrência</h1>
+    </div>
     <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="input-group">
@@ -148,4 +195,28 @@
         <input type="submit" value="Enviar">
     </form>
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
 </html>

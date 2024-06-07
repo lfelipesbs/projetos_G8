@@ -4,11 +4,20 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
 from .models import Ocorrencia
+from forms import LoginForm,CadastroForm
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
     imagem_url = '/media/logo.png'  # Atualize o caminho conforme necessário
     return render(request, 'front/login.html', {'imagem_url': imagem_url})
+
+def cadastro(request):
+
+    return render(request, 'cadastro.html')
+
+def vizualizar_ocorrencia(request):
+
+    return render(request, 'vizualizar_ocorrencia.html')
 
 def home_aluno(request):
     if request.method == 'POST':
@@ -29,27 +38,7 @@ def home_adm(request):
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
     return render(request, 'home_adm.html', {'usuarios': usuarios, 'ocorrencias': ocorrencias})
 
-@csrf_exempt
-def processar_formulario(request):
-    if request.method == 'POST':
-        tipo = request.POST.get('tipo')
-        usuario = request.POST.get('usuario')
-        senha = make_password(request.POST.get('senha'))  # Usa hashing para a senha
 
-        # Criando um novo registro com as informações coletadas do formulário
-        registro = Dados(tipo=tipo, usuario=usuario, senha=senha)
-        registro.save()  # Salva o novo registro no banco de dados
-
-        # Redireciona com base no tipo de usuário
-        if tipo == 'administrador':
-            return redirect('/home_adm')
-        elif tipo == 'usuario':
-            return redirect('/home_aluno')  # Mudança aqui para alinhar com a opção correta
-        else:
-            return redirect('/')  # Redireciona para a página inicial se o tipo não for válido
-
-    # Retorna um erro se o método da requisição não for POST
-    return JsonResponse({'error': 'Método não permitido'}, status=405)
 
 def registrar_ocorrencia(request):
     if request.method == 'GET':
@@ -73,3 +62,36 @@ def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
     return render(request, 'home_adm.html', {'usuarios': usuarios, 'ocorrencias': ocorrencias})
+
+def fazer_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
+            senha = form.cleaned_data['senha']
+            tipo = form.cleaned_data['tipo']
+            
+            usuario = Dados.objects.filter(nome=nome, senha=senha, tipo=tipo).first()
+            if usuario:
+                if tipo == 'usuario':
+                    
+                    return redirect('/home_aluno/')  
+                elif tipo == 'administrador':
+                    
+                    return redirect('/home_adm/')
+            
+            erro = 'Usuário não cadastrado ou credenciais incorretas.'
+    else:
+        form = LoginForm()
+        erro = None
+    return render(request, 'front/login.html', {'form': form, 'erro': erro})
+
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        form = CadastroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = CadastroForm()
+    return render(request, 'cadastro.html', {'form': form})

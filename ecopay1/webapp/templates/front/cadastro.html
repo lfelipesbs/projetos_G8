@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPay - Login</title>
+    <title>EcoPay - Cadastro</title>
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -105,6 +105,50 @@
     input[type="radio"]:hover {
         background-color: #0d8c46; /* Cor de fundo ao passar o mouse */
     }
+    footer {
+        background-color: rgb(37, 37, 37);;
+        color: white;
+        padding: 20px 0;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+    
+    .footer-section h4 {
+        margin-bottom: 10px;
+        color: rgb(0, 255, 30); /* Cor do texto do título */
+    }
+    
+    .footer-section p, .footer-section a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Estilos para os links */
+    .footer-section a {
+        color: white; /* Cor dos links */
+    }
+    
+    .footer-section a:hover {
+        color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+    }
     </style>
 </head>
 <!DOCTYPE html>
@@ -112,28 +156,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css"> <!-- Ajuste o caminho conforme necessário -->
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div id="menu"><h2>ECOPAY</h2></div>
+    <div id="menu"><h2>Gymconnect</h2></div>
+
     <div id="login_box">
-        <img src="{{ imagem_url }}" alt="Logo" id="logo">
-        <!-- Formulário para processamento do login -->
-        <form action="/processar_formulario/" method="post" id="enviar">
+        <h2>Cadastro de Usuário</h2>
+        {% for imagem in imagens %}
+        <div id="logo">
+            <img id="logo" src="{{ imagem.imagem.url }}" alt="Imagem">
+        </div>
+        {% endfor %}
+        <form action="/cadastrar_usuario/" method="post">
+            
             {% csrf_token %}
             <div class="input-group">
                 <input type="radio" id="administrador" name="tipo" value="administrador" required>
-                <label for="administrador">Admin</label>
+                <label for="administrador">Administrador</label>
             </div>
             <div class="input-group">
                 <input type="radio" id="usuario" name="tipo" value="usuario" required>
-                <label for="usuario">Usuário</label>
+                <label for="usuario">Usuario</label>
             </div>
-            <input type="text" name="usuario" placeholder="Nome de usuário" required>
+            <input type="text" name="nome" placeholder="Nome de usuário" required>
+            
             <input type="password" name="senha" placeholder="Senha" required>
-            <input type="submit" value="Enviar">
+            
+            <input type="submit" value="Cadastrar">
         </form>
+        <a href="{% url 'login' %}"> 
+            
+            <h2 id="botao_cadastro">Já possui uma conta?</h2>
+        </a>
     </div>
 </body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
 </html>
