@@ -7,88 +7,60 @@
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
             align-items: center;
-        }
-        img{
-            width: 100%;
-            height: auto;
             text-align: center;
-            align-items: center;
         }
-        h3{
-            color: white;
+
+        #home {
+            margin-top: 220px;
         }
-        a{
+
+        
+        a.elem {
+            width: 35%;
             text-decoration: none;
-            color: rgb(255, 255, 255);
-            
+            display: inline-block;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            color: rgb(0, 0, 0);
+            border:rgb(0, 0, 0)
         }
-        a:hover{
-            text-decoration: underline;
-            text-decoration-style: dotted;
-        }
+        
         #menu {
             padding-top: 30px;
             padding-bottom: 30px;
             background-color: rgb(37, 37, 37);
             width: 100%;
             text-align: center;
+            margin-bottom: 50px;
             position: fixed;
             top: 0;
             left: 0;
-            border-bottom: 3px solid rgb(0, 255, 30);
-        }
-
-        #menu ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #menu ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .button {
-            background-color: #007BFF; /* Blue background for the button */
             color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            border-bottom: 1px solid black;
         }
 
-        .button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+        a.elem {
+            background-color:  rgb(0, 255, 30);
+            border-radius:10px;
+        }
+        a.elem:hover{
+            background-color: rgb(4, 181, 25);
+            
+        }
+
+        #botao:hover {
             cursor: pointer;
         }
-        #voltar{
-            margin: 0 auto;
+        #voltar {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 6px 16px 6px 12px;
+            left: 10px;
+            top: 0;
         }
-        #voltar:hover{
-            text-decoration: none;
-        }
-        #ocorrencias{
-            width: 65%; /* Adjust width to match your design */
-            display: inline-block;
-            border: 3px rgb(0, 255, 30) groove;
-            background-color: rgb(37, 37, 37);
-            box-sizing: border-box;
-            margin-top: 140px; /* Adjust margin top to push down under fixed menu */
-            padding: 20px;
-            color: white;
-            margin-left: auto;
-            margin-right: auto;
+
+        #voltar:hover {
+            cursor: pointer;
         }
         footer {
             background-color: rgb(37, 37, 37);;
@@ -139,17 +111,20 @@
 <body>
     <div id="menu">
         <ul>
-            <h3>Home do administrador</h3>
+            <h2>HOME ADMINISTRADOR</h2>
+            <p style="font-size: 15pt; color: rgb(0, 255, 30);">Bem-vindo, {{ nome }}!</p>
         </ul>
         <a href="{% url 'login' %}" class="button" id=voltar>❮</a> <!-- Assumindo que a rota 'login' está definida em urls.py -->
     </div>
-
-    <div class="button">
-        <ul>
-            <li><a href="/vizualizar_ocorrencia/">Vizualizar Ocorrências</a></li>
-        </ul>
-    </div>    
-   
+    <div id="home">
+        <div id="dir">
+            <div id="botao">
+                <a class="elem" href="{% url 'vizualizar_ocorrencia' %}"> 
+                    <h3>VIZUALIZAR OCORRENCIAS</h3>
+                </a>
+            </div>
+        </div>
+    </div>
     
     
 </body>

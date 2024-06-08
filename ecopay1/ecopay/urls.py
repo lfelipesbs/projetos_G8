@@ -17,6 +17,7 @@ urlpatterns = [
     
     path('registrar_ocorrencia/', views.registrar_ocorrencia, name="registrar_ocorrencia"), 
     path('vizualizar_ocorrencia/', views.vizualizar_ocorrencia, name="vizualizar_ocorrencia"), 
+    path('ocorrencias/', views.listar_ocorrencias, name='listar_ocorrencias'),
 ]
 
 # Adicionando as URLs de arquivos estáticos e de mídia

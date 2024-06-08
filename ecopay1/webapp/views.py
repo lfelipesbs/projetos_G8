@@ -16,8 +16,8 @@ def cadastro(request):
     return render(request, 'front/cadastro.html')
 
 def vizualizar_ocorrencia(request):
-
-    return render(request, 'vizualizar_ocorrencia.html')
+    ocorrencias = Ocorrencia.objects.all()
+    return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
 
 def home_aluno(request):
     if request.method == 'POST':
@@ -55,9 +55,9 @@ def registrar_ocorrencia(request):
         ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem)
         ocorrencia.save()
         
-        return render(request, 'home_aluno.html', {'message': 'Ocorrência registrada com sucesso!'})
+        return render(request, 'registrarocorrencia.html', {'message': 'Ocorrência registrada com sucesso!'})
     else:
-        return render(request, 'home_aluno.html', {'error': 'Método não suportado'})
+        return render(request, 'registrarocorrencia.html', {'error': 'Método não suportado'})
 def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
@@ -95,3 +95,7 @@ def cadastrar_usuario(request):
     else:
         form = CadastroForm()
     return render(request, 'cadastro.html', {'form': form})
+
+def listar_ocorrencias(request):
+    ocorrencias = Ocorrencia.objects.all()
+    return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
