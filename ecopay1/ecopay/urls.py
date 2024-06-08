@@ -26,6 +26,11 @@ urlpatterns = [
     path('stats/', views.stats, name='stats'),
     path('estatisticas_ocorrencias/', views.estatisticas_ocorrencias, name='estatisticas_ocorrencias'),
 
+    path('adicionar_dica/', views.adicionar_dica, name='adicionar_dica'),
+    path('exibir_dica/', views.exibir_dica, name='exibir_dica'),
+    path('dicas_adm/', views.dicas_adm, name="dicas_adm"),
+    path('dicas/', views.dicas, name="dicas"),
+
 
 ]
 

@@ -26,3 +26,15 @@ class Ocorrencia(models.Model):
 
     def __str__(self):
         return f"{self.endereco} - {self.tipo_de_lixo}"
+    
+class Dica(models.Model):
+    TIPO_DICA_CHOICES = (
+        ('reciclagem', 'Reciclagem'),
+        ('orientacoes', 'Orientações'),
+        ('cuidados', 'Cuidados'),
+    )
+    tipo = models.CharField(max_length=20, choices=TIPO_DICA_CHOICES)
+    texto = models.TextField()
+
+    def __str__(self):
+        return self.texto

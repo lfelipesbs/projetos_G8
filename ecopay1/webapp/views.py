@@ -3,8 +3,8 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
-from .models import Ocorrencia
-from .forms import LoginForm,CadastroForm,OcorrenciaForm
+from .models import Ocorrencia,Dica
+from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
@@ -168,3 +168,27 @@ def estatisticas_ocorrencias(request):
     }
 
     return JsonResponse(estatisticas)
+
+def adicionar_dica(request):
+    mensagem_sucesso=""
+    if request.method == 'POST':
+        form = DicaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            mensagem_sucesso= "Dica adicionada com sucesso"
+    else:
+        form = DicaForm()
+    return render(request, 'dicas_adm.html', {'form': form, 'mensagem_sucesso':mensagem_sucesso})
+
+def exibir_dica(request):
+    tipo_selecionado = request.GET.get('tipo')
+    dicas = Dica.objects.filter(tipo=tipo_selecionado) if tipo_selecionado else None
+    return render(request, 'dicas.html', {'dicas': dicas})
+
+def dicas(request):
+
+    return render(request, 'dicas.html')
+
+def dicas_adm(request):
+
+    return render(request, 'dicas_adm.html')

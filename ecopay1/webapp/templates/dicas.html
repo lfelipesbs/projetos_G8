@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymConnect - Dicas</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        #login_box {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            align-items: center;
+            margin-top: 220px;
+
+        }
+
+        input {
+            border: 2px solid black;
+            padding: 10px;
+            background-color: lightblue;
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 40%;
+        }
+
+        input[type=submit] {
+            width: 20%;
+        }
+
+        #menu {
+            background-color: rgb(37, 37, 37);
+            border: 2.5px groove rgb(0, 255, 30);
+            color: white;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+            position: fixed;
+            top: 0;
+            left: 0; 
+        }
+
+        /*dicas */
+        #dicas_box {
+            margin-top: 220px;
+        }
+
+        #nutri {
+            width: 35%;
+            display: inline-block;
+            border: 2.5px rgb(0, 255, 30 ) groove;
+            background-color: rgb(37, 37, 37);
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+        #treino {
+            width: 35%;
+            margin-left: 10%;
+            background-color: rgb(37, 37, 37);
+            display: inline-block;
+            border: 2.5px rgb(0, 255, 30 ) groove;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+        }
+
+
+        #voltar {
+            position: fixed;
+            left: 10px;
+            top: 0;
+        }
+
+        #voltar:hover {
+            cursor: pointer;
+        }
+
+        /*duvidas*/
+        #duvidas_box {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            align-items: center;
+            margin-top: 220px;
+
+        }
+
+        .duvidaescrita {
+            height: 400px;
+            resize: none;
+            padding: 20px;
+            background-color: lightblue;
+            border: 2px rgb(0, 255, 30 ) solid;
+            font: 14pt black bold;
+        }
+
+        #enviar_duvida {
+            margin-top: 15px;
+        }
+
+        #enviar_duvida:hover {
+            cursor: pointer;
+        }
+
+        /*predefinidos*/
+        .parte-corpo {
+            padding: 8px;
+            margin-top: 6px;
+            border: 1.5px black solid;
+        }
+
+        .parte-corpo:hover {
+            cursor: pointer;
+        }
+
+        #treino_add {
+            background-color: rgb(0, 255, 30 );
+            margin-top: 20px;
+            border: 1.5px solid black;
+        }
+        footer {
+            background-color: rgb(37, 37, 37);;
+            color: white;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 10px;
+            color: rgb(0, 255, 30); /* Cor do texto do título */
+        }
+        
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Estilos para os links */
+        .footer-section a {
+            color: white; /* Cor dos links */
+        }
+        
+        .footer-section a:hover {
+            color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        function redirecionarParaLink(link) {
+            window.location.href = link;
+        }
+
+        document.getElementById('enviar').addEventListener('submit', function (event) {
+            event.preventDefault();
+            window.open('/home.html', '_blank');
+        });
+
+    </script>
+    <div id="menu">
+        <a href="{% url 'home_aluno' %}"> 
+        <h2 id="voltar" style="color: white;">⇦</h2>
+        </a>
+        <h2>DICAS</h2>
+    </div>
+    
+    
+<div id="login_box">
+    <h2>Escolha o Tipo de Dica:</h2>
+    <form action="{% url 'exibir_dica' %}" method="get">
+        <select name="tipo">
+            <option value="reciclagem">Reciclagem</option>
+            <option value="orientacoes">Orientações</option>
+            <option value="cuidados">Cuidados</option>
+        </select>
+        <button type="submit">Ver Dicas</button>
+    </form>
+    
+    {% if dicas %}
+    <h2>Dicas</h2>
+    <ul>
+        {% for dica in dicas %}
+        <li>{{ dica.tipo }}: {{ dica.texto }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhuma dica encontrada para este tipo.</p>
+    {% endif %}
+</div>
+
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
+</html>

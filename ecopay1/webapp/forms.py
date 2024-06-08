@@ -1,5 +1,5 @@
 from django import forms
-from .models import Dados,Ocorrencia
+from .models import Dados,Ocorrencia,Dica
 
 class CadastroForm(forms.ModelForm):
     class Meta:
@@ -15,4 +15,9 @@ class OcorrenciaForm(forms.ModelForm):
     class Meta:
         model = Ocorrencia
         fields = ['descricao', 'endereco', 'tipo_de_lixo', 'data']
+
+class DicaForm(forms.ModelForm):
+    class Meta:
+        model = Dica
+        fields = ['tipo', 'texto']
 
