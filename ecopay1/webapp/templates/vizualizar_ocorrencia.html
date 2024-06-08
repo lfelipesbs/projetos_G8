@@ -201,7 +201,34 @@
                 {% if ocorrencia.imagem %}
                 <img src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
                 {% endif %}
+
                 <button class="delete-button" onclick="excluirOcorrencia({{ ocorrencia.id }})">Excluir</button>
+                
+                <button onclick="showEditForm({{ ocorrencia.id }})">Editar</button>
+
+                <!-- Formulário de edição -->
+                <form id="edit-form-{{ ocorrencia.id }}" style="display: none;" method="post" action="{% url 'editar_ocorrencia' ocorrencia.id %}">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="imagem_original" value="{{ ocorrencia.imagem.url }}">
+                    
+                    <label for="descricao">Descrição:</label>
+                    <input type="text" name="descricao" value="{{ ocorrencia.descricao }}">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" name="endereco" value="{{ ocorrencia.endereco }}">
+                    <div class="input-group">
+                        <label for="tipo_de_lixo">Tipo de Lixo:</label>
+                        <select id="tipo_de_lixo" name="tipo_de_lixo" required>
+                            <option value="orgânico" {% if ocorrencia.tipo_de_lixo == 'orgânico' %} selected {% endif %}>Orgânico</option>
+                            <option value="reciclável" {% if ocorrencia.tipo_de_lixo == 'reciclável' %} selected {% endif %}>Reciclável</option>
+                            <option value="eletrônicos" {% if ocorrencia.tipo_de_lixo == 'eletrônicos' %} selected {% endif %}>Eletrônicos</option>
+                            <option value="outros" {% if ocorrencia.tipo_de_lixo == 'outros' %} selected {% endif %}>Outros</option>
+                        </select>
+                    </div>
+                    <label for="data">Data:</label>
+                    <input type="date" name="data" value="{{ ocorrencia.data }}">
+                    <button type="submit">Salvar</button>
+                </form>
             </div>
             {% endfor %}
         {% else %}
@@ -215,6 +242,19 @@
                 // Redirecionar para a URL de exclusão, passando o ID da ocorrência
                 window.location.href = `/excluir_ocorrencia/${id}/`;
             }
+        }
+        function showEditForm(id) {
+            var form = document.getElementById("edit-form-" + id);
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+
+        function submitEditForm(id) {
+            var form = document.getElementById("edit-form-" + id);
+            form.submit();
         }
     </script>
 </body>

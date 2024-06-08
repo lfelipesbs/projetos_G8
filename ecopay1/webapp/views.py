@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
 from .models import Ocorrencia
-from .forms import LoginForm,CadastroForm
+from .forms import LoginForm,CadastroForm,OcorrenciaForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
@@ -140,3 +140,14 @@ def excluir_ocorrencia(request, ocorrencia_id):
     ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
     ocorrencia.delete()
     return redirect('/vizualizar_ocorrencia/') 
+
+def editar_ocorrencia(request, ocorrencia_id):
+    ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
+    if request.method == 'POST':
+        form = OcorrenciaForm(request.POST, request.FILES, instance=ocorrencia)
+        if form.is_valid():
+            form.save()
+            return redirect('/vizualizar_ocorrencia/')
+    else:
+        form = OcorrenciaForm(instance=ocorrencia)
+    return render(request, 'vizualizar_ocorrencia.html', {'form': form})

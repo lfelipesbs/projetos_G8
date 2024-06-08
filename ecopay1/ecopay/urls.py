@@ -21,6 +21,7 @@ urlpatterns = [
     path('vizualizar_ocorrencia_user/', views.vizualizar_ocorrencia_user, name="vizualizar_ocorrencia_user"),
     path('ocorrencias/', views.listar_ocorrencias, name='listar_ocorrencias'),
     path('excluir_ocorrencia/<int:ocorrencia_id>/', views.excluir_ocorrencia, name='excluir_ocorrencia'),
+    path('editar_ocorrencia/<int:ocorrencia_id>/', views.editar_ocorrencia, name='editar_ocorrencia'),
 ]
 
 # Adicionando as URLs de arquivos estáticos e de mídia
