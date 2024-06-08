@@ -19,6 +19,14 @@ def cadastro(request):
     return render(request, 'front/cadastro.html')
 
 def vizualizar_ocorrencia(request):
+    endereco_filtro = request.GET.get('endereco_filtro')
+    if endereco_filtro:
+        # Filtrar as ocorrências com base no endereço fornecido
+        ocorrencias = Ocorrencia.objects.filter(endereco__icontains=endereco_filtro)
+        return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+    else:
+        ocorrencias = Ocorrencia.objects.all()
+    
     data_filtro = request.GET.get('data_filtro')
     if data_filtro:
         data_filtro = datetime.strptime(data_filtro, '%Y-%m-%d').date()
@@ -29,6 +37,14 @@ def vizualizar_ocorrencia(request):
     return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
 
 def vizualizar_ocorrencia_user(request):
+    endereco_filtro = request.GET.get('endereco_filtro')
+    if endereco_filtro:
+        # Filtrar as ocorrências com base no endereço fornecido
+        ocorrencias = Ocorrencia.objects.filter(endereco__icontains=endereco_filtro)
+        return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+    else:
+        ocorrencias = Ocorrencia.objects.all()
+    
     data_filtro = request.GET.get('data_filtro')
     if data_filtro:
         data_filtro = datetime.strptime(data_filtro, '%Y-%m-%d').date()

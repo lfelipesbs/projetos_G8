@@ -188,6 +188,12 @@
             <input type="date" id="data_filtro" name="data_filtro">
             <input type="submit" value="Filtrar">
         </form>
+        <form method="GET" action="">
+            <label for="endereco_filtro">Filtrar por Endereço:</label>
+            <input type="text" id="endereco_filtro" name="endereco_filtro">
+            <input type="submit" value="Filtrar">
+        </form>
+        
         {% if ocorrencias %}
             {% for ocorrencia in ocorrencias %}
             <div class="ocorrencia">
