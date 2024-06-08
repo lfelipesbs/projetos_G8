@@ -77,6 +77,8 @@ def home_adm(request):
 
 
 def registrar_ocorrencia(request):
+    mensagem_sucesso=""
+    mensagem_erro=""
     if request.method == 'GET':
         return render(request, 'registrarocorrencia.html')
     elif request.method == 'POST':
@@ -91,10 +93,11 @@ def registrar_ocorrencia(request):
         # Cria uma nova instância do modelo Ocorrencia e salva os dados, incluindo a imagem
         ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem,data=data)
         ocorrencia.save()
+        mensagem_sucesso="Ocorrencia registrada com sucesso!"
         
-        return render(request, 'registrarocorrencia.html', {'message': 'Ocorrência registrada com sucesso!'})
+        return render(request, 'registrarocorrencia.html', {'mensagem_sucesso': mensagem_sucesso})
     else:
-        return render(request, 'registrarocorrencia.html', {'error': 'Método não suportado'})
+        return render(request, 'registrarocorrencia.html', {'mensagem_erro': mensagem_erro})
 def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
@@ -143,15 +146,19 @@ def excluir_ocorrencia(request, ocorrencia_id):
     return redirect('/vizualizar_ocorrencia/') 
 
 def editar_ocorrencia(request, ocorrencia_id):
+    mensagem_sucesso=""
+    
     ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
     if request.method == 'POST':
         form = OcorrenciaForm(request.POST, request.FILES, instance=ocorrencia)
         if form.is_valid():
             form.save()
+            mensagem_sucesso="Edição feita com sucesso!"
             return redirect('/vizualizar_ocorrencia/')
+            
     else:
         form = OcorrenciaForm(instance=ocorrencia)
-    return render(request, 'vizualizar_ocorrencia.html', {'form': form})
+    return render(request, 'vizualizar_ocorrencia.html', {'form': form,'mensagem_sucesso':mensagem_sucesso})
 
 def stats(request):
 
@@ -194,14 +201,18 @@ def dicas_adm(request):
     return render(request, 'dicas_adm.html')
 
 def denunciar_ocorrencia(request, ocorrencia_id):
+    
     if request.method == 'POST':
         ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
         motivo = request.POST.get('motivo', '')
         Denuncia.objects.create(ocorrencia=ocorrencia, motivo=motivo)
+        
         return redirect('/vizualizar_ocorrencia_user/', ocorrencia_id=ocorrencia_id)
+        
     else:
         return redirect('/vizualizar_ocorrencia_user/')
-    
+        
+
 def denuncia_adm(request):
     denuncias = Denuncia.objects.all()
     return render(request, 'denuncia_adm.html', {'denuncias': denuncias})
