@@ -8,6 +8,7 @@ from .forms import LoginForm,CadastroForm,OcorrenciaForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
+from django.db.models import Count
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -151,3 +152,19 @@ def editar_ocorrencia(request, ocorrencia_id):
     else:
         form = OcorrenciaForm(instance=ocorrencia)
     return render(request, 'vizualizar_ocorrencia.html', {'form': form})
+
+def stats(request):
+
+    return render(request,'stats.html')
+
+def estatisticas_ocorrencias(request):
+    # Calcular estatísticas
+    tipo_lixo_count = Ocorrencia.objects.values('tipo_de_lixo').annotate(count=Count('id'))
+
+    # Formatando os dados para o formato JSON
+    estatisticas = {
+        'tipos_lixo': [item['tipo_de_lixo'] for item in tipo_lixo_count],
+        'count': [item['count'] for item in tipo_lixo_count],
+    }
+
+    return JsonResponse(estatisticas)
