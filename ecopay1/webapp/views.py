@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
 from .models import Ocorrencia
 from .forms import LoginForm,CadastroForm
+from django.shortcuts import get_object_or_404, redirect
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -18,6 +19,10 @@ def cadastro(request):
 def vizualizar_ocorrencia(request):
     ocorrencias = Ocorrencia.objects.all()
     return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+
+def vizualizar_ocorrencia_user(request):
+    ocorrencias = Ocorrencia.objects.all()
+    return render(request, 'vizualizar_ocorrencia_user.html', {'ocorrencias': ocorrencias})
 
 def home_aluno(request):
     if request.method == 'POST':
@@ -99,3 +104,8 @@ def cadastrar_usuario(request):
 def listar_ocorrencias(request):
     ocorrencias = Ocorrencia.objects.all()
     return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+
+def excluir_ocorrencia(request, ocorrencia_id):
+    ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
+    ocorrencia.delete()
+    return redirect('/vizualizar_ocorrencia/') 

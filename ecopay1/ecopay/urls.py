@@ -4,6 +4,7 @@ from webapp import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     
     path('admin/', admin.site.urls),
@@ -17,7 +18,9 @@ urlpatterns = [
     
     path('registrar_ocorrencia/', views.registrar_ocorrencia, name="registrar_ocorrencia"), 
     path('vizualizar_ocorrencia/', views.vizualizar_ocorrencia, name="vizualizar_ocorrencia"), 
+    path('vizualizar_ocorrencia_user/', views.vizualizar_ocorrencia_user, name="vizualizar_ocorrencia_user"),
     path('ocorrencias/', views.listar_ocorrencias, name='listar_ocorrencias'),
+    path('excluir_ocorrencia/<int:ocorrencia_id>/', views.excluir_ocorrencia, name='excluir_ocorrencia'),
 ]
 
 # Adicionando as URLs de arquivos estáticos e de mídia
