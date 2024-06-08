@@ -176,7 +176,7 @@
         {% if ocorrencias %}
             {% for ocorrencia in ocorrencias %}
             <div class="ocorrencia">
-                <h4>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }}</h4>
+                <h4>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }} - {{ ocorrencia.data }}</h4>
                 {% if ocorrencia.imagem %}
                 <img src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
                 {% endif %}

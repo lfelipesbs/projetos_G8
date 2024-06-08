@@ -6,6 +6,7 @@ from .models import Dados  # Certifique-se de que o nome da classe está em Came
 from .models import Ocorrencia
 from .forms import LoginForm,CadastroForm
 from django.shortcuts import get_object_or_404, redirect
+from django.utils import timezone
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -55,9 +56,10 @@ def registrar_ocorrencia(request):
         
         # Acessa o arquivo de imagem enviado
         imagem = request.FILES.get('imagem')
+        data = timezone.now()
         
         # Cria uma nova instância do modelo Ocorrencia e salva os dados, incluindo a imagem
-        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem)
+        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem,data=data)
         ocorrencia.save()
         
         return render(request, 'registrarocorrencia.html', {'message': 'Ocorrência registrada com sucesso!'})

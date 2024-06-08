@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Dados(models.Model):
     # Definindo as opções para o campo 'tipo'
@@ -21,6 +22,7 @@ class Ocorrencia(models.Model):
     endereco = models.CharField(max_length=255)
     tipo_de_lixo = models.CharField(max_length=100)
     imagem = models.ImageField(upload_to='ocorrencias/', null=True, blank=True)  # Armazena na pasta /media/ocorrencias
+    data = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f"{self.endereco} - {self.tipo_de_lixo}"
