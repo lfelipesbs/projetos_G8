@@ -41,7 +41,7 @@ def vizualizar_ocorrencia_user(request):
     if endereco_filtro:
         # Filtrar as ocorrências com base no endereço fornecido
         ocorrencias = Ocorrencia.objects.filter(endereco__icontains=endereco_filtro)
-        return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+        return render(request, 'vizualizar_ocorrencia_user.html', {'ocorrencias': ocorrencias})
     else:
         ocorrencias = Ocorrencia.objects.all()
     
@@ -52,7 +52,7 @@ def vizualizar_ocorrencia_user(request):
         ocorrencias = Ocorrencia.objects.filter(data__date=data_filtro)
     else:
         ocorrencias = Ocorrencia.objects.all()
-    return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
+    return render(request, 'vizualizar_ocorrencia_user.html', {'ocorrencias': ocorrencias})
 
 def home_aluno(request):
     if request.method == 'POST':

@@ -110,7 +110,9 @@
 <body>
     <div id="menu">
         
-        <a href="{% url 'login' %}" class="button" id=voltar>❮</a> <!-- Assumindo que a rota 'login' está definida em urls.py -->
+        <a href="{% url 'login' %}"> 
+            <h2 id="voltar" style="color: white;">⇦</h2>
+        </a>
         <h2>HOME USUARIO</h2>
         <p style="font-size: 15pt; color: rgb(0, 255, 30);">Bem-vindo, {{ nome }}!</p>
     </div>
