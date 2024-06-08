@@ -7,6 +7,7 @@ from .models import Ocorrencia
 from .forms import LoginForm,CadastroForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
+from datetime import datetime
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -18,12 +19,24 @@ def cadastro(request):
     return render(request, 'front/cadastro.html')
 
 def vizualizar_ocorrencia(request):
-    ocorrencias = Ocorrencia.objects.all()
+    data_filtro = request.GET.get('data_filtro')
+    if data_filtro:
+        data_filtro = datetime.strptime(data_filtro, '%Y-%m-%d').date()
+        
+        ocorrencias = Ocorrencia.objects.filter(data__date=data_filtro)
+    else:
+        ocorrencias = Ocorrencia.objects.all()
     return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
 
 def vizualizar_ocorrencia_user(request):
-    ocorrencias = Ocorrencia.objects.all()
-    return render(request, 'vizualizar_ocorrencia_user.html', {'ocorrencias': ocorrencias})
+    data_filtro = request.GET.get('data_filtro')
+    if data_filtro:
+        data_filtro = datetime.strptime(data_filtro, '%Y-%m-%d').date()
+        
+        ocorrencias = Ocorrencia.objects.filter(data__date=data_filtro)
+    else:
+        ocorrencias = Ocorrencia.objects.all()
+    return render(request, 'vizualizar_ocorrencia.html', {'ocorrencias': ocorrencias})
 
 def home_aluno(request):
     if request.method == 'POST':

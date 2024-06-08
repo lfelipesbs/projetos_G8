@@ -183,6 +183,11 @@
 
     <div id="ocorrencias">
         <h2>Ocorrências</h2>
+        <form method="GET" action="">
+            <label for="data_filtro">Filtrar por Data:</label>
+            <input type="date" id="data_filtro" name="data_filtro">
+            <input type="submit" value="Filtrar">
+        </form>
         {% if ocorrencias %}
             {% for ocorrencia in ocorrencias %}
             <div class="ocorrencia">
