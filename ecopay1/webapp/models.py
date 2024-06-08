@@ -38,3 +38,7 @@ class Dica(models.Model):
 
     def __str__(self):
         return self.texto
+
+class Denuncia(models.Model):
+    ocorrencia = models.ForeignKey(Ocorrencia, on_delete=models.CASCADE)
+    motivo = models.TextField()

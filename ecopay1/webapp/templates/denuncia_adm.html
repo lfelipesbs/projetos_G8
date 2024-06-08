@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPay - Visualizar Ocorrências</title>
+    <title>EcoPay - Denuncias</title>
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -164,55 +165,25 @@
 <body>
     <div id="menu">
         <ul>
-            <h1>Visualizar Ocorrências</h1>
+            <h1>Denúncias</h1>
         </ul>
-        <a href="{% url 'home_aluno' %}">
+        <a href="{% url 'home_adm' %}">
             <h2 id="voltar" style="color: white;">⇦</h2>
         </a>
     </div>
-
+    
+    {% for denuncia in denuncias %}
     <div id="ocorrencias">
-        <h2>Ocorrências</h2>
-        <form method="GET" action="">
-            <label for="data_filtro">Filtrar por Data:</label>
-            <input type="date" id="data_filtro" name="data_filtro">
-            <input type="submit" value="Filtrar">
-        </form>
-        <form method="GET" action="">
-            <label for="endereco_filtro">Filtrar por Endereço:</label>
-            <input type="text" id="endereco_filtro" name="endereco_filtro">
-            <input type="submit" value="Filtrar">
-        </form>
-        {% if ocorrencias %}
-            {% for ocorrencia in ocorrencias %}
-            <div class="ocorrencia">
-                <h4>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }} - {{ ocorrencia.data }}</h4>
-                {% if ocorrencia.imagem %}
-                <img src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
-                <button onclick="showDenunciaForm({{ ocorrencia.id }})">Denunciar</button>
-                <form id="denuncia-form-{{ ocorrencia.id }}" style="display: none;" action="{% url 'denunciar_ocorrencia' ocorrencia.id %}" method="post">
-                {% csrf_token %}
-                <label for="motivo">Motivo da Denúncia:</label>
-                <textarea id="motivo" name="motivo" required></textarea>
-                <button type="submit">Enviar Denúncia</button>
-        </form>
-                {% endif %}
-            </div>
-            {% endfor %}
-        {% else %}
-            <p>Não há ocorrências disponíveis.</p>
-        {% endif %}
+        <h2>Ocorrência Denunciada</h2>
+        <p><strong>Ocorrência:</strong> {{ denuncia.ocorrencia.descricao }}</p>
+        <p><strong>Endereço:</strong> {{ denuncia.ocorrencia.endereco }}</p>
+        <p><strong>Tipo de Lixo:</strong> {{ denuncia.ocorrencia.tipo_de_lixo }}</p>
+        <img src="{{ denuncia.ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
+        <h3>Detalhes da Denúncia</h3>
+        <p>{{ denuncia.motivo }}</p>
     </div>
-    <script>
-        function showDenunciaForm(id) {
-            var form = document.getElementById("denuncia-form-" + id);
-            if (form.style.display === "none") {
-                form.style.display = "block";
-            } else {
-                form.style.display = "none";
-            }
-        }
-    </script>
+{% endfor %}
+    
 </body>
 <footer>
     <div class="footer-container">

@@ -22,6 +22,8 @@ urlpatterns = [
     path('ocorrencias/', views.listar_ocorrencias, name='listar_ocorrencias'),
     path('excluir_ocorrencia/<int:ocorrencia_id>/', views.excluir_ocorrencia, name='excluir_ocorrencia'),
     path('editar_ocorrencia/<int:ocorrencia_id>/', views.editar_ocorrencia, name='editar_ocorrencia'),
+    path('denuncia_adm/', views.denuncia_adm, name='denuncia_adm'),
+    path('ocorrencia/<int:ocorrencia_id>/denunciar/', views.denunciar_ocorrencia, name='denunciar_ocorrencia'),
 
     path('stats/', views.stats, name='stats'),
     path('estatisticas_ocorrencias/', views.estatisticas_ocorrencias, name='estatisticas_ocorrencias'),

@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
-from .models import Ocorrencia,Dica
+from .models import Ocorrencia,Dica,Denuncia
 from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
@@ -192,3 +192,16 @@ def dicas(request):
 def dicas_adm(request):
 
     return render(request, 'dicas_adm.html')
+
+def denunciar_ocorrencia(request, ocorrencia_id):
+    if request.method == 'POST':
+        ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
+        motivo = request.POST.get('motivo', '')
+        Denuncia.objects.create(ocorrencia=ocorrencia, motivo=motivo)
+        return redirect('/vizualizar_ocorrencia_user/', ocorrencia_id=ocorrencia_id)
+    else:
+        return redirect('/vizualizar_ocorrencia_user/')
+    
+def denuncia_adm(request):
+    denuncias = Denuncia.objects.all()
+    return render(request, 'denuncia_adm.html', {'denuncias': denuncias})
