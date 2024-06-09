@@ -104,3 +104,4 @@ env
 local_settings.py
 _local_settings.py
 static/
+ecopay1/db.sqlite3
