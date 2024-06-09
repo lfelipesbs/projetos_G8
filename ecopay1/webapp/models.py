@@ -54,3 +54,11 @@ class Alerta(models.Model):
 
     def __str__(self):
         return f'Alerta de {self.usuario} em {self.data_envio}'
+
+class Feedback(models.Model):
+    data_envio = models.DateTimeField(auto_now_add=True)
+    mensagem = models.TextField()
+    avaliacao = models.IntegerField()
+
+    def __str__(self):
+        return f'Feedback em {self.data_envio}'

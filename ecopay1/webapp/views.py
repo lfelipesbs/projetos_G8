@@ -3,8 +3,8 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
-from .models import Ocorrencia,Dica,Denuncia,Alerta
-from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm,AlertaForm
+from .models import Ocorrencia,Dica,Denuncia,Alerta,Feedback
+from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm,AlertaForm,FeedbackForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
@@ -236,3 +236,17 @@ def alerta_adm(request):
 def ver_alertas(request):
     alertas = Alerta.objects.all()  # Buscar todos os alertas, independentemente do usuário
     return render(request, 'ver_alertas.html', {'alertas': alertas})
+
+def enviar_feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('ver_feedbacks')
+    else:
+        form = FeedbackForm()
+    return render(request, 'enviar_feedback.html', {'form': form})
+
+def ver_feedbacks(request):
+    feedbacks = Feedback.objects.all().order_by('-data_envio')
+    return render(request, 'ver_feedbacks.html', {'feedbacks': feedbacks})
