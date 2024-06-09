@@ -46,8 +46,11 @@ class Denuncia(models.Model):
 
 class Alerta(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    mensagem = models.TextField()
     data_envio = models.DateTimeField(auto_now_add=True)
+    mensagem = models.TextField()
+    local = models.CharField(max_length=255, default="N/A")
+    tipo = models.CharField(max_length=255, default="N/A")
+    acao = models.TextField(default="N/A")
 
     def __str__(self):
-        return f'Alerta para {self.usuario.username} - {self.data_envio}'
+        return f'Alerta de {self.usuario} em {self.data_envio}'

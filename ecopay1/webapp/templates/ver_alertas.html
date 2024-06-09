@@ -65,7 +65,7 @@
         }
 
         .button {
-            background-color: #007BFF; /* Fundo azul para o botão */
+            background-color: #007BFF; /* Blue background for the button */
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -75,7 +75,7 @@
         }
 
         .button:hover {
-            background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+            background-color: #0056b3; /* Darker blue on hover */
             cursor: pointer;
         }
 
@@ -127,15 +127,6 @@
             text-decoration: underline;
         }
 
-        /* Estilos para os links */
-        .footer-section a {
-            color: white; /* Cor dos links */
-        }
-
-        .footer-section a:hover {
-            color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
-        }
-
         .alerta {
             background-color: rgb(230, 230, 230);
             margin: 20px;
@@ -166,7 +157,10 @@
             {% for alerta in alertas %}
                 <div class="alerta">
                     <p><strong>Data:</strong> {{ alerta.data_envio }}</p>
-                    <p>{{ alerta.mensagem }}</p>
+                    <p><strong>Local:</strong> {{ alerta.local }}</p>
+                    <p><strong>Tipo:</strong> {{ alerta.tipo }}</p>
+                    <p><strong>Mensagem:</strong> {{ alerta.mensagem }}</p>
+                    <p><strong>O que fazer:</strong> {{ alerta.acao }}</p>
                 </div>
             {% endfor %}
         {% else %}
