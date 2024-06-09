@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Dados(models.Model):
     # Definindo as opções para o campo 'tipo'
@@ -42,3 +43,11 @@ class Dica(models.Model):
 class Denuncia(models.Model):
     ocorrencia = models.ForeignKey(Ocorrencia, on_delete=models.CASCADE)
     motivo = models.TextField()
+
+class Alerta(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    mensagem = models.TextField()
+    data_envio = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Alerta para {self.usuario.username} - {self.data_envio}'

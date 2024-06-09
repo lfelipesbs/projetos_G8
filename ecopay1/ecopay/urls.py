@@ -33,6 +33,9 @@ urlpatterns = [
     path('dicas_adm/', views.dicas_adm, name="dicas_adm"),
     path('dicas/', views.dicas, name="dicas"),
 
+    path('alerta_adm/', views.alerta_adm, name='alerta_adm'),
+    path('ver_alertas/', views.ver_alertas, name='ver_alertas'),
+
 
 ]
 

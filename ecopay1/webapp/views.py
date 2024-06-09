@@ -3,12 +3,14 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
-from .models import Ocorrencia,Dica,Denuncia
+from .models import Ocorrencia,Dica,Denuncia,Alerta
 from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
 from django.db.models import Count
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -216,3 +218,22 @@ def denunciar_ocorrencia(request, ocorrencia_id):
 def denuncia_adm(request):
     denuncias = Denuncia.objects.all()
     return render(request, 'denuncia_adm.html', {'denuncias': denuncias})
+
+
+def alerta_adm(request):
+    if request.method == 'POST':
+        usuario_id = request.POST.get('usuario')
+        mensagem = request.POST.get('mensagem')
+        usuario = User.objects.get(id=usuario_id)
+        alerta = Alerta(usuario=usuario, mensagem=mensagem)
+        alerta.save()
+        messages.success(request, 'Alerta enviado com sucesso!')
+        return redirect('alerta_adm')
+
+    usuarios = User.objects.all()
+    return render(request, 'alerta_adm.html', {'usuarios': usuarios})
+
+
+def ver_alertas(request):
+    alertas = Alerta.objects.all()  # Buscar todos os alertas, independentemente do usuário
+    return render(request, 'ver_alertas.html', {'alertas': alertas})
