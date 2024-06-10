@@ -36,8 +36,9 @@ urlpatterns = [
     path('alerta_adm/', views.alerta_adm, name='alerta_adm'),
     path('ver_alertas/', views.ver_alertas, name='ver_alertas'),
 
-    path('enviar_feedback/', views.enviar_feedback, name='enviar_feedback'),
-    path('ver_feedbacks/', views.ver_feedbacks, name='ver_feedbacks'),
+     path('avaliar_ocorrencia/<int:ocorrencia_id>/', views.avaliar_ocorrencia, name='avaliar_ocorrencia'),
+     path('ver_feedbacks/', views.ver_feedbacks, name='ver_feedbacks'),
+    
 
 
 ]

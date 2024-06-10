@@ -1,5 +1,5 @@
 from django import forms
-from .models import Dados,Ocorrencia,Dica,Alerta,Feedback
+from .models import Dados,Ocorrencia,Dica,Alerta,Avaliacao
 
 class CadastroForm(forms.ModelForm):
     class Meta:
@@ -33,15 +33,15 @@ class AlertaForm(forms.ModelForm):
             'acao': forms.Textarea(attrs={'rows': 3, 'cols': 40}),
         }
 
-class FeedbackForm(forms.ModelForm):
+class AvaliacaoForm(forms.ModelForm):
     class Meta:
-        model = Feedback
-        fields = ['mensagem', 'avaliacao']
+        model = Avaliacao
+        fields = ['avaliacao', 'observacoes']
         widgets = {
-            'mensagem': forms.Textarea(attrs={'rows': 4, 'cols': 50}),
-            'avaliacao': forms.NumberInput(attrs={'min': 1, 'max': 5})
+            'avaliacao': forms.NumberInput(attrs={'min': 1, 'max': 5}),
+            'observacoes': forms.Textarea(attrs={'rows': 4, 'cols': 50})
         }
         labels = {
-            'mensagem': 'Sua Mensagem',
-            'avaliacao': 'Sua Avaliação (1-5)'
+            'avaliacao': 'Avaliação (1-5)',
+            'observacoes': 'Observações'
         }

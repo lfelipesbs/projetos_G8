@@ -3,8 +3,8 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password
 from .models import Dados  # Certifique-se de que o nome da classe está em CamelCase como é padrão
-from .models import Ocorrencia,Dica,Denuncia,Alerta,Feedback
-from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm,AlertaForm,FeedbackForm
+from .models import Ocorrencia,Dica,Denuncia,Alerta,Avaliacao
+from .forms import LoginForm,CadastroForm,OcorrenciaForm,DicaForm,AlertaForm,AvaliacaoForm
 from django.shortcuts import get_object_or_404, redirect
 from django.utils import timezone
 from datetime import datetime
@@ -237,16 +237,20 @@ def ver_alertas(request):
     alertas = Alerta.objects.all()  # Buscar todos os alertas, independentemente do usuário
     return render(request, 'ver_alertas.html', {'alertas': alertas})
 
-def enviar_feedback(request):
+def avaliar_ocorrencia(request, ocorrencia_id):
+    ocorrencia = get_object_or_404(Ocorrencia, pk=ocorrencia_id)
     if request.method == 'POST':
-        form = FeedbackForm(request.POST)
+        form = AvaliacaoForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('ver_feedbacks')
+            avaliacao = form.save(commit=False)
+            avaliacao.ocorrencia = ocorrencia
+            avaliacao.save()
+            return redirect('/vizualizar_ocorrencia_user/', ocorrencia_id=ocorrencia_id)
     else:
-        form = FeedbackForm()
-    return render(request, 'enviar_feedback.html', {'form': form})
+        form = AvaliacaoForm()
+    return render(request, 'vizualizar_ocorrencia.html', {'form': form, 'ocorrencia': ocorrencia})
 
 def ver_feedbacks(request):
-    feedbacks = Feedback.objects.all().order_by('-data_envio')
-    return render(request, 'ver_feedbacks.html', {'feedbacks': feedbacks})
+     avaliacoes = Avaliacao.objects.all()
+     return render(request, 'ver_feedbacks.html', {'avaliacoes': avaliacoes})
+

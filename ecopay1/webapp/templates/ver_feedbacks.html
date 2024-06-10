@@ -105,6 +105,28 @@
         h2{
             color: white;
         }
+        .ocorrencia {
+            margin-bottom: 20px; /* Espaçamento entre as ocorrências */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Fundo leve para destacar cada ocorrência */
+            text-align: left; /* Alinha o texto à esquerda */
+            
+        }
+
+        .ocorrencia img {
+            max-width: 25%; /* Ajusta o tamanho da imagem */
+            max-height: 200px
+            display: block;
+            margin-top: 10px;
+        }
+
+        #avaliacoes {
+            width: 80%;
+            margin: 120px auto 20px; /* Ajuste para margem superior e inferior */
+            padding: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -112,22 +134,23 @@
         <ul>
             <h2>Feedbacks Recebidos</h2>
         </ul>
-        <a href="{% url 'home_aluno' %}">
+        <a href="{% url 'home_adm' %}">
             <h2 id="voltar" style="color: white;">⇦</h2>
         </a>
     </div>
-    <div id="feedbacks">
-        {% if feedbacks %}
-            {% for feedback in feedbacks %}
-                <div class="feedback">
-                    <p><strong>Data:</strong> {{ feedback.data_envio }}</p>
-                    <p><strong>Avaliação:</strong> {{ feedback.avaliacao }} / 5</p>
-                    <p>{{ feedback.mensagem }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Não há feedbacks enviados.</p>
-        {% endif %}
+    {% for avaliacao in avaliacoes %}
+    <div id="avaliacoes">
+        <h2>Avaliação da Ocorrência</h2>
+        <p><strong>Ocorrência:</strong> {{ avaliacao.ocorrencia.descricao }}</p>
+        <p><strong>Endereço:</strong> {{ avaliacao.ocorrencia.endereco }}</p>
+        <p><strong>Tipo de Lixo:</strong> {{ avaliacao.ocorrencia.tipo_de_lixo }}</p>
+        <img src="{{ avaliacao.ocorrencia.imagem.url }}" alt="Imagem da Ocorrência" style="max-width: 800px;">
+        <h3>Detalhes da Avaliação</h3>
+        <p><strong>Avaliação:</strong> {{ avaliacao.avaliacao }}</p>
+        <p><strong>Observações:</strong> {{ avaliacao.observacoes }}</p>
+    </div>
+    {% endfor %}
+       
     </div>
 </body>
 <footer>

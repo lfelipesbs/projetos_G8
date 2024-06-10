@@ -1,10 +1,12 @@
 from django.contrib import admin
-from .models import Dados, Ocorrencia,Denuncia,Dica
+from .models import Dados, Ocorrencia,Denuncia,Dica,Avaliacao,Alerta
 
 # Configuração básica para Dados
 admin.site.register(Dados)
 admin.site.register(Denuncia)
 admin.site.register(Dica)
+admin.site.register(Avaliacao)
+admin.site.register(Alerta)
 
 # Configuração personalizada para Ocorrencia
 class OcorrenciaAdmin(admin.ModelAdmin):

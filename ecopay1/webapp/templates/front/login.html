@@ -29,8 +29,10 @@
 
         #logo{
             width: 50%;
+            height: 50%;
             margin-top: 50px;
             margin-bottom: 50px;
+            margin-left: 85px;
         }
 
         #login_box {
@@ -39,11 +41,12 @@
             border: 3px rgb(0, 255, 30) groove;
             background-color: rgb(37, 37, 37);
             box-sizing: border-box;
-            margin-top: 140px; /* Adjust margin top to push down under fixed menu */
+            margin-top: 160px; /* Adjust margin top to push down under fixed menu */
             padding: 20px;
             color: white;
             margin-left: auto;
             margin-right: auto;
+            border-radius:10px;
         }
 
         form {
@@ -159,19 +162,18 @@
     <title>Login</title>
 </head>
 <body>
-    <div id="menu"><h2>EcoPay</h2></div>
+    <div id="menu"><h2>EcoPay - Login</h2></div>
     <div id="login_box">
-        <h2>Login</h2>
+        <div id="logo">
+            <img src="https://i.postimg.cc/VkYm1kbB/ECOPAYLOGO.png" alt="Logo do EcoPay">
+        </div>
+        
         
         {% if erro %}
             <p style="color: red;">{{ erro }}</p>
         {% endif %}
         
-        {% for imagem in imagens %}
-        <div id="logo">
-            <img id="logo" src="{{ imagem.imagem.url }}" alt="Imagem">
-        </div>
-        {% endfor %}
+
         <form action="/fazer_login/" method="post">
             {% csrf_token %}
            

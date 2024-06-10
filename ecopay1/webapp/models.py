@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Dados(models.Model):
     # Definindo as opções para o campo 'tipo'
@@ -55,10 +56,11 @@ class Alerta(models.Model):
     def __str__(self):
         return f'Alerta de {self.usuario} em {self.data_envio}'
 
-class Feedback(models.Model):
-    data_envio = models.DateTimeField(auto_now_add=True)
-    mensagem = models.TextField()
-    avaliacao = models.IntegerField()
+class Avaliacao(models.Model):
+    ocorrencia = models.ForeignKey(Ocorrencia, on_delete=models.CASCADE)
+    data_avaliacao = models.DateTimeField(default=timezone.now)
+    avaliacao = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    observacoes = models.TextField()
 
     def __str__(self):
-        return f'Feedback em {self.data_envio}'
+        return f'Avaliação da Ocorrência: {self.ocorrencia.id}'
