@@ -38,6 +38,8 @@ urlpatterns = [
 
      path('avaliar_ocorrencia/<int:ocorrencia_id>/', views.avaliar_ocorrencia, name='avaliar_ocorrencia'),
      path('ver_feedbacks/', views.ver_feedbacks, name='ver_feedbacks'),
+
+      path('mapa/', views.mapa_ocorrencias, name='mapa_ocorrencias'),
     
 
 

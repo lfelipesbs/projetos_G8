@@ -11,6 +11,7 @@ from datetime import datetime
 from django.db.models import Count
 from django.contrib import messages
 from django.contrib.auth.models import User
+from geopy.geocoders import Nominatim
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -254,3 +255,19 @@ def ver_feedbacks(request):
      avaliacoes = Avaliacao.objects.all()
      return render(request, 'ver_feedbacks.html', {'avaliacoes': avaliacoes})
 
+def mapa_ocorrencias(request):
+    ocorrencias = Ocorrencia.objects.all()
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    locations = []
+    
+    for ocorrencia in ocorrencias:
+        location = geolocator.geocode(ocorrencia.endereco)
+        if location:
+            locations.append({
+                'descricao': ocorrencia.descricao,
+                'endereco': ocorrencia.endereco,
+                'tipo_de_lixo': ocorrencia.tipo_de_lixo,
+                'latitude': location.latitude,
+                'longitude': location.longitude
+            })
+    return render(request, 'ver_alertas.html', {'locations': locations})
