@@ -159,7 +159,7 @@
             var locations = {{ locations|safe }};
             locations.forEach(function(ocorrencia) {
                 var marker = L.marker([ocorrencia.latitude, ocorrencia.longitude]).addTo(mapa)
-                    .bindPopup(ocorrencia.descricao + '<br>' + ocorrencia.endereco + '<br>' + ocorrencia.tipo_de_lixo);
+                .bindPopup(ocorrencia.descricao + '<br>' + ocorrencia.endereco + '<br>' + ocorrencia.tipo_de_lixo);
                 
                 
                 if (ocorrencia.total_ocorrencias > 5) {

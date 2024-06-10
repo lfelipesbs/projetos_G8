@@ -256,13 +256,23 @@ def ver_feedbacks(request):
      return render(request, 'ver_feedbacks.html', {'avaliacoes': avaliacoes})
 
 def mapa_ocorrencias(request):
+    
     ocorrencias = Ocorrencia.objects.all()
+
+    
     geolocator = Nominatim(user_agent="geoapiExercises")
+
+   
     locations = []
+
     
     for ocorrencia in ocorrencias:
+       
         location = geolocator.geocode(ocorrencia.endereco)
+
+       
         if location:
+            
             locations.append({
                 'descricao': ocorrencia.descricao,
                 'endereco': ocorrencia.endereco,
@@ -270,4 +280,11 @@ def mapa_ocorrencias(request):
                 'latitude': location.latitude,
                 'longitude': location.longitude
             })
+        else:
+            
+            locations.append({
+                'error_message': f'Endereço não encontrado para a ocorrência: {ocorrencia.endereco}'
+            })
+
+   
     return render(request, 'ver_alertas.html', {'locations': locations})
