@@ -47,7 +47,7 @@ jobs:
         with:
           name: python-app
           path: |
-            ecopay
+            ecopay1
             !venv/
 
   deploy:
