@@ -12,6 +12,8 @@ from django.db.models import Count
 from django.contrib import messages
 from django.contrib.auth.models import User
 from geopy.geocoders import Nominatim
+from django.conf import settings
+import os
 
 def login(request):
     # Supondo que 'logo.png' está localizado dentro do diretório de mídia
@@ -80,10 +82,12 @@ def home_adm(request):
 
 
 def registrar_ocorrencia(request):
-    mensagem_sucesso=""
-    mensagem_erro=""
+    mensagem_sucesso = ""
+    mensagem_erro = ""
+    
     if request.method == 'GET':
         return render(request, 'registrarocorrencia.html')
+    
     elif request.method == 'POST':
         descricao = request.POST.get('descricao')
         endereco = request.POST.get('endereco')
@@ -93,14 +97,32 @@ def registrar_ocorrencia(request):
         imagem = request.FILES.get('imagem')
         data = timezone.now()
         
-        # Cria uma nova instância do modelo Ocorrencia e salva os dados, incluindo a imagem
-        ocorrencia = Ocorrencia(descricao=descricao, endereco=endereco, tipo_de_lixo=tipo_de_lixo, imagem=imagem,data=data)
-        ocorrencia.save()
-        mensagem_sucesso="Ocorrencia registrada com sucesso!"
+        # Verificar e criar o diretório, se não existir
+        media_root = os.path.join(settings.MEDIA_ROOT, 'ocorrencias')
+        if not os.path.exists(media_root):
+            os.makedirs(media_root)
         
-        return render(request, 'registrarocorrencia.html', {'mensagem_sucesso': mensagem_sucesso})
-    else:
-        return render(request, 'registrarocorrencia.html', {'mensagem_erro': mensagem_erro})
+        # Cria uma nova instância do modelo Ocorrencia e salva os dados, incluindo a imagem
+        try:
+            ocorrencia = Ocorrencia(
+                descricao=descricao,
+                endereco=endereco,
+                tipo_de_lixo=tipo_de_lixo,
+                imagem=imagem,
+                data=data
+            )
+            ocorrencia.save()
+            mensagem_sucesso = "Ocorrência registrada com sucesso!"
+        except Exception as e:
+            mensagem_erro = f"Erro ao registrar ocorrência: {str(e)}"
+        
+        return render(request, 'registrarocorrencia.html', {
+            'mensagem_sucesso': mensagem_sucesso,
+            'mensagem_erro': mensagem_erro
+        })
+
+    return render(request, 'registrarocorrencia.html', {'mensagem_erro': mensagem_erro})
+
 def home_adm(request):
     usuarios = Dados.objects.all()  # Obtém todos os usuários do banco de dados
     ocorrencias = Ocorrencia.objects.all()  # Obtém todas as ocorrências do banco de dados
