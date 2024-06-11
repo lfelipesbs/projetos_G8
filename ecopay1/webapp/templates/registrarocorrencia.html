@@ -30,14 +30,14 @@
         }
         
         #feedback_box {
-            width: 35%;
+            width: 45%;
             display: inline-block;
-            border: 3px rgb(0, 255, 30) groove;
-            background-color: rgb(37, 37, 37);
+            background-color: rgb(0, 255, 30);
             box-sizing: border-box;
             margin-top: 170px;
             padding: 20px;
-            color: white;
+            color: black;
+            text-decoration: solid;
             margin-left: auto;
             margin-right: auto;
             border-radius: 10px;
@@ -65,13 +65,16 @@
         textarea {
             padding: 10px;
             margin-top: 10px;
-            height: 150px; /* Ajuste conforme necessário */
+            width: 80%;
+            height: 200px; 
         }
         
         input[type="submit"] {
             background-color: #007BFF;
             color: white;
             border: none;
+            width: 85%;
+            margin: 0 auto;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -96,10 +99,50 @@
             margin-right: 5px;
         }
         
+        input[type="text"]{
+            margin-top: 8px;
+            width: 80%;
+            height: 30px;
+        }
         label {
             font-size: 16px;
         }
         
+        #inputs_verdes {
+            margin: 0 auto;
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            width: 80%;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        #inputs_verdes label {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        
+        #inputs_verdes select {
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        
+        #inputs_verdes select:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
         input[type="radio"]:checked {
             background-color: rgb(0, 255, 30);
         }
@@ -107,6 +150,7 @@
         input[type="radio"]:hover {
             background-color: #0d8c46;
         }
+
         #voltar {
             position: fixed;
             left: 10px;
@@ -125,7 +169,7 @@
             color:green;
         }
         footer {
-            background-color: rgb(37, 37, 37);;
+            background-color: rgb(37, 37, 37);
             color: white;
             padding: 20px 0;
             font-family: Arial, sans-serif;
@@ -168,6 +212,51 @@
         .footer-section a:hover {
             color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
         }
+        .input-add_img {
+            margin: 0 auto;
+            margin-top: 10px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            width: 80%;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .input-add_img label {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        
+        .input-add_img input[type="file"] {
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-add_img input[type="file"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+        
+        #preview {
+            margin-top: 10px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -189,15 +278,15 @@
     <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="input-group">
-            <label for="descricao">Descrição da Ocorrência:</label>
+            <label for="descricao">Descrição da Ocorrência:</label><br>
             <textarea id="descricao" name="descricao" rows="4" required></textarea>
         </div>
         <div class="input-group">
-            <label for="endereco">Endereço:</label>
+            <label for="endereco">Endereço:</label><br>
             <input type="text" id="endereco" name="endereco" required>
         </div>
-        <div class="input-group">
-            <label for="tipo_de_lixo">Tipo de Lixo:</label>
+        <div class="input-group" id="inputs_verdes">
+            <label for="tipo_de_lixo">Tipo de Lixo:</label><br>
             <select id="tipo_de_lixo" name="tipo_de_lixo" required>
                 <option value="orgânico">Orgânico</option>
                 <option value="reciclável">Reciclável</option>
@@ -205,8 +294,8 @@
                 <option value="outros">Outros</option>
             </select>
         </div>
-        <div class="input-group">
-            <label for="imagem">Adicionar Imagem:</label>
+        <div class="input-add_img">
+            <label for="imagem">Adicionar Imagem:</label><br>
             <input type="file" id="imagem" name="imagem" accept="image/*" required>
             <div id="preview"></div>
             <script>
