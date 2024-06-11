@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPay - Login</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            align-items: center;
+            text-align: center;
+            margin: 0; /* Remove margin to fix the menu to the top properly */
+        }
+
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgb(37, 37, 37);
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 3px solid rgb(0, 255, 30);
+            z-index: 1000; /* Make sure the menu is above other content */
+        }
+
+        #logo{
+            width: 50%;
+            height: 50%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-left: 85px;
+        }
+
+        #login_box {
+            width: 35%; /* Adjust width to match your design */
+            display: inline-block;
+            border: 3px rgb(0, 255, 30) groove;
+            background-color: rgb(37, 37, 37);
+            box-sizing: border-box;
+            margin-top: 160px; /* Adjust margin top to push down under fixed menu */
+            padding: 20px;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius:10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        .input-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }input[type="radio"] {
+        /* Esconde os checkboxes padrão */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 20px; /* Define a largura do checkbox */
+        height: 20px; /* Define a altura do checkbox */
+        border: 2px solid rgb(0, 255, 30); /* Adiciona uma borda */
+        border-radius: 5px; /* Adiciona bordas arredondadas */
+        outline: none; /* Remove a borda de foco padrão */
+        cursor: pointer; /* Muda o cursor ao passar por cima */
+        margin-right: 55px; /* Espaçamento à direita */
+    }
+
+    /* Estilizando os labels dos checkboxes */
+    label {
+        font-size: 16px; /* Define o tamanho da fonte */
+    }
+
+    /* Estilizando os checkboxes quando estão marcados */
+    input[type="radio"]:checked {
+        background-color: rgb(0, 255, 30); /* Cor de fundo quando marcado */
+    }
+
+    /* Adicionando um estilo hover para os checkboxes */
+    input[type="radio"]:hover {
+        background-color: #0d8c46; /* Cor de fundo ao passar o mouse */
+    }
+    footer {
+        background-color: rgb(37, 37, 37);;
+        color: white;
+        padding: 20px 0;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+    
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+    
+    .footer-section h4 {
+        margin-bottom: 10px;
+        color: rgb(0, 255, 30); /* Cor do texto do título */
+    }
+    
+    .footer-section p, .footer-section a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .footer-section a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Estilos para os links */
+    .footer-section a {
+        color: white; /* Cor dos links */
+    }
+    
+    .footer-section a:hover {
+        color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+    }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div id="menu"><h2>EcoPay - Login</h2></div>
+    <div id="login_box">
+        <div id="logo">
+            <img src="https://i.postimg.cc/VkYm1kbB/ECOPAYLOGO.png" alt="Logo do EcoPay">
+        </div>
+        
+        
+        {% if erro %}
+            <p style="color: red;">{{ erro }}</p>
+        {% endif %}
+        
+
+        <form action="/fazer_login/" method="post">
+            {% csrf_token %}
+           
+            <div class="input-group">
+                <input type="radio" id="administrador" name="tipo" value="administrador" required>
+                <label for="administrador">Administrador</label>
+            </div>
+            <div class="input-group">
+                <input type="radio" id="usuario" name="tipo" value="usuario" required>
+                <label for="usuario">Usuario</label>
+            </div>
+            <input type="text" name="nome" placeholder="Nome de usuário" required>
+            
+            <input type="password" name="senha" placeholder="Senha" required>
+            
+            <input type="submit" value="Entrar">
+        </form>
+        
+        <a href="{% url 'cadastro' %}"> 
+            
+            <h2 id="botao_cadastro">Cadastrar nova conta</h2>
+        </a>
+
+        
+    </div>
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
+</html>

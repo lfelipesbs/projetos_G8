@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPay - Visualizar Estatisticas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: white; /* Fundo branco */
+            color: black; /* Cor do texto preta para contraste */
+        }
+
+        ul, li{
+            list-style: none;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            text-align: center;
+            align-items: center;
+        }
+
+        h3 {
+            color: white;
+        }
+
+        h2 {
+            color: black;
+        }
+        h1 {
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 5px;
+            background-color: rgb(37, 37, 37);
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 3px solid rgb(0, 255, 30);
+            z-index: 1;
+        }
+
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .button {
+            background-color: #007BFF; /* Blue background for the button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            cursor: pointer;
+        }
+
+        #voltar {
+            margin: 0 auto;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 6px 16px 6px 12px;
+        }
+
+        #voltar:hover {
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: rgb(37, 37, 37);
+            color: white;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+            z-index: 1;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 10px;
+            color: rgb(0, 255, 30); /* Cor do texto do título */
+        }
+
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos para os links */
+        .footer-section a {
+            color: white; /* Cor dos links */
+        }
+
+        .footer-section a:hover {
+            color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+        }
+
+        .ocorrencia {
+            margin-bottom: 20px; /* Espaçamento entre as ocorrências */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Fundo leve para destacar cada ocorrência */
+            text-align: left; /* Alinha o texto à esquerda */
+            
+        }
+
+        .ocorrencia img {
+            max-width: 50%; /* Ajusta o tamanho da imagem */
+            max-height: 200px
+            display: block;
+            margin-top: 10px;
+        }
+
+        #ocorrencias {
+            width: 80%;
+            margin: 120px auto 20px; /* Ajuste para margem superior e inferior */
+            padding: 20px 0;
+        }
+        #grafico {
+            margin-top: 150px;
+            margin-bottom: 100px; /* Ajuste a margem inferior conforme necessário */
+            height: 10px; /* Ajuste a altura do gráfico conforme necessário */
+            width: 50%;
+            margin-left:50px;
+            margin-right:50px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <h1>Visualizar Estatisticas</h1>
+        </ul>
+        <a href="{% url 'home_aluno' %}">
+            <h2 id="voltar" style="color: white;">⇦</h2>
+        </a>
+    </div>
+    
+    <canvas id="grafico" ></canvas>
+    
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "/estatisticas_ocorrencias/",
+                type: "GET",
+                success: function(data) {
+                    var ctx = document.getElementById('grafico').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: data.tipos_lixo,
+                            datasets: [{
+                                label: 'Quantidade',
+                                data: data.count,
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.
+            </p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Feedbacks</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+        }
+        ul, li{
+            list-style: none;
+        }
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgb(37, 37, 37);
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 3px solid rgb(0, 255, 30);
+        }
+        #menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+        #voltar {
+            margin: 0 auto;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 6px 16px 6px 12px;
+        }
+        #voltar:hover {
+            text-decoration: none;
+        }
+        footer {
+            background-color: rgb(37, 37, 37);
+            color: white;
+            padding: 20px 0;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        .footer-section h4 {
+            margin-bottom: 10px;
+            color: rgb(0, 255, 30);
+        }
+        .footer-section p, .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        .feedback {
+            background-color: rgb(230, 230, 230);
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            margin-top: 120px;
+        }
+        #feedbacks {
+            margin-top: 220px;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h2{
+            color: white;
+        }
+        .ocorrencia {
+            margin-bottom: 20px; /* Espaçamento entre as ocorrências */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Fundo leve para destacar cada ocorrência */
+            text-align: left; /* Alinha o texto à esquerda */
+            
+        }
+
+        .ocorrencia img {
+            max-width: 25%; /* Ajusta o tamanho da imagem */
+            max-height: 200px
+            display: block;
+            margin-top: 10px;
+        }
+
+        #avaliacoes {
+            width: 80%;
+            margin: 120px auto 20px; /* Ajuste para margem superior e inferior */
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <h2>Feedbacks Recebidos</h2>
+        </ul>
+        <a href="{% url 'home_adm' %}">
+            <h2 id="voltar" style="color: white;">⇦</h2>
+        </a>
+    </div>
+    {% for avaliacao in avaliacoes %}
+    <div id="avaliacoes">
+        <h2>Avaliação da Ocorrência</h2>
+        <p><strong>Ocorrência:</strong> {{ avaliacao.ocorrencia.descricao }}</p>
+        <p><strong>Endereço:</strong> {{ avaliacao.ocorrencia.endereco }}</p>
+        <p><strong>Tipo de Lixo:</strong> {{ avaliacao.ocorrencia.tipo_de_lixo }}</p>
+        <img src="{{ avaliacao.ocorrencia.imagem.url }}" alt="Imagem da Ocorrência" style="max-width: 800px;">
+        <h3>Detalhes da Avaliação</h3>
+        <p><strong>Avaliação:</strong> {{ avaliacao.avaliacao }}</p>
+        <p><strong>Observações:</strong> {{ avaliacao.observacoes }}</p>
+    </div>
+    {% endfor %}
+       
+    </div>
+</body>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Sobre Nós</h4>
+            <p>Bem-vindo ao ECOPAY! Nós somos uma plataforma dedicada a ajudar a identificar e resolver problemas de acumulação de lixo em comunidades. Nossa missão é promover um ambiente mais limpo e saudável através da colaboração e participação ativa dos cidadãos.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contato</h4>
+            <p>Telefone: (81) 1234-5678</p>
+            <p>Email: contato@webapp.com</p>
+        </div>
+        <div class="footer-section">
+            <h4>Redes Sociais</h4>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-section">
+            <h4>Endereço</h4>
+            <p>Cais do Apolo, 77</p>
+            <p>Recife, Pernambuco</p>
+        </div>
+    </div>
+</footer>
+</html>
