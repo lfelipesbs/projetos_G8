@@ -8,75 +8,94 @@
     <style>
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            align-items: center;
             text-align: center;
+            margin: 0;
+            color: white;
+            background-color: #f0f0f0;
+        }
+
+        ul, li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgb(37, 37, 37);
+            color: white;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-bottom: 3px solid rgb(0, 255, 30);
+            z-index: 1000;
         }
 
         #login_box {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            align-items: center;
             margin-top: 220px;
-
+            padding: 20px;
+            background-color: #0d8c46;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        ul, li{
-            list-style: none;
-        }
         input {
             border: 2px solid black;
             padding: 10px;
             background-color: lightblue;
+            width: calc(100% - 24px);
+            margin-bottom: 10px;
+            border-radius: 5px;
         }
 
-        input[type=text],
-        input[type=password] {
-            width: 40%;
-        }
-
-        input[type=submit] {
-            width: 20%;
-        }
-
-        #menu {
-            background-color: rgb(37, 37, 37);
-            border: 2.5px groove rgb(0, 255, 30);
-            color: white;
-            padding-top: 30px;
-            padding-bottom: 30px;
+        input[type="submit"] {
             width: 100%;
-            text-align: center;
-            margin-bottom: 50px;
-            position: fixed;
-            top: 0;
-            left: 0; 
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /*dicas */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
         #dicas_box {
             margin-top: 220px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        #nutri {
-            width: 35%;
+        #nutri, #treino {
+            width: 45%;
             display: inline-block;
-            border: 2.5px rgb(0, 255, 30 ) groove;
+            border: 2.5px rgb(0, 255, 30) groove;
             background-color: rgb(37, 37, 37);
             padding: 20px;
             box-sizing: border-box;
             color: white;
+            border-radius: 10px;
+            margin-top: 10px;
         }
 
         #treino {
-            width: 35%;
-            margin-left: 10%;
-            background-color: rgb(37, 37, 37);
-            display: inline-block;
-            border: 2.5px rgb(0, 255, 30 ) groove;
-            padding: 20px;
-            box-sizing: border-box;
-            color: white;
+            margin-left: 5%;
         }
-
 
         #voltar {
             position: fixed;
@@ -88,37 +107,48 @@
             cursor: pointer;
         }
 
-        /*duvidas*/
         #duvidas_box {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
-            align-items: center;
             margin-top: 220px;
-
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .duvidaescrita {
-            height: 400px;
+            height: 200px;
             resize: none;
             padding: 20px;
             background-color: lightblue;
-            border: 2px rgb(0, 255, 30 ) solid;
+            border: 2px rgb(0, 255, 30) solid;
+            border-radius: 5px;
+            width: calc(100% - 44px);
             font: 14pt black bold;
         }
 
         #enviar_duvida {
             margin-top: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
         }
 
         #enviar_duvida:hover {
-            cursor: pointer;
+            background-color: #0056b3;
         }
 
-        /*predefinidos*/
         .parte-corpo {
             padding: 8px;
             margin-top: 6px;
             border: 1.5px black solid;
+            border-radius: 5px;
         }
 
         .parte-corpo:hover {
@@ -126,83 +156,124 @@
         }
 
         #treino_add {
-            background-color: rgb(0, 255, 30 );
+            background-color: rgb(0, 255, 30);
             margin-top: 20px;
             border: 1.5px solid black;
+            border-radius: 5px;
         }
+
+        select {
+            width: 200px;
+            padding: 10px 15px;
+            border: 2px solid #015c2a;
+            border-radius: 5px;
+            background-color: white;
+            color: #333;
+            font-size: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            position: relative;
+            outline: none;
+            cursor: pointer;
+        }
+
+        select:hover {
+            border-color: #015c2a;
+        }
+
+        select:focus {
+            border-color: #015c2a;
+            box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+        }
+
+        select option {
+            padding: 10px;
+            background-color: white;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .select-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #007BFF;
+            font-size: 12px;
+        }
+
         footer {
-            display: flex;
-            bottom: 0;
-            height: 100%;
             background-color: rgb(37, 37, 37);
             color: white;
             padding: 20px 0;
             font-family: Arial, sans-serif;
-            margin-top: 120px;
-            margin-left:-10px;
-            margin-bottom:-10px;
-            
-            margin-right:-8px;
+            margin-top: 50px;
         }
-        
+
         .footer-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
         }
-        
+
         .footer-section {
             flex: 1;
             min-width: 200px;
             margin: 10px;
         }
-        
+
         .footer-section h4 {
             margin-bottom: 10px;
-            color: rgb(0, 255, 30); /* Cor do texto do título */
+            color: rgb(0, 255, 30);
         }
-        
+
         .footer-section p, .footer-section a {
             color: white;
             text-decoration: none;
             display: block;
             margin-bottom: 5px;
         }
-        
+
         .footer-section a:hover {
             text-decoration: underline;
         }
-        
-        /* Estilos para os links */
+
         .footer-section a {
-            color: white; /* Cor dos links */
+            color: white;
         }
-        
+
         .footer-section a:hover {
-            color: rgb(0, 255, 30); /* Cor dos links ao passar o mouse */
+            color: rgb(0, 255, 30);
         }
     </style>
 </head>
+
 <body>
     <script>
-
         function redirecionarParaLink(link) {
             window.location.href = link;
         }
 
-        document.getElementById('enviar').addEventListener('submit', function (event) {
+        document.getElementById('enviar').addEventListener('submit', function(event) {
             event.preventDefault();
             window.open('/home.html', '_blank');
         });
-
     </script>
+
     <div id="menu">
-        <a href="{% url 'home_adm' %}"> 
-        <h2 id="voltar" style="color: white;">⇦</h2>
+        <a href="{% url 'home_adm' %}">
+            <h2 id="voltar" style="color: white;">⇦</h2>
         </a>
         <h2>DICAS</h2>
     </div>
-    
     
     <div id="login_box">
         <h2>Adicionar Dica</h2>
@@ -213,28 +284,28 @@
             <p style="color: green;">{{ mensagem_sucesso }}</p>
         {% endif %}
         <form action="/adicionar_dica/" method="post">
-            
             {% csrf_token %}
-            
             <div>
-                <label for="id_tipo">Tipo de Dica:</label>
-                <select id="id_tipo" name="tipo" required>
-                    <option value="reciclagem">Reciclagem</option>
-                    <option value="orientacoes">Orientações</option>
-                    <option value="cuidados">Cuidados</option>
-                </select>
+                <label for="id_tipo">Tipo de Dica:</label><br><br>
+                <div class="select-wrapper">
+                    <select id="id_tipo" name="tipo" required>
+                        <option value="reciclagem">Reciclagem</option>
+                        <option value="orientacoes">Orientações</option>
+                        <option value="cuidados">Cuidados</option>
+                    </select>
+                </div>
             </div>
             
             <div>
-                <label for="id_dica">Dica:</label>
+                <br><label for="id_dica">Dica:</label><br><br>
                 <textarea id="id_dica" name="texto" required></textarea>
             </div>
             
             <button type="submit">Enviar</button>
         </form>
     </div>
-
 </body>
+
 <footer>
     <div class="footer-container">
         <div class="footer-section">
@@ -243,20 +314,18 @@
         </div>
         <div class="footer-section">
             <h4>Contato</h4>
-            <p>Telefone: (81) 1234-5678</p>
-            <p>Email: contato@webapp.com</p>
+            <p>Email: contato@ecopay.com</p>
+            <p>Telefone: (11) 1234-5678</p>
+            <p>Endereço: Rua Verde, 123 - São Paulo, SP</p>
         </div>
         <div class="footer-section">
-            <h4>Redes Sociais</h4>
-            <a href="https://facebook.com" target="_blank">Facebook</a>
-            <a href="https://twitter.com" target="_blank">Twitter</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-        </div>
-        <div class="footer-section">
-            <h4>Endereço</h4>
-            <p>Cais do Apolo, 77</p>
-            <p>Recife, Pernambuco</p>
+            <h4>Links Rápidos</h4>
+            <a href="#">Home</a>
+            <a href="#">Sobre</a>
+            <a href="#">Serviços</a>
+            <a href="#">Contato</a>
         </div>
     </div>
 </footer>
+
 </html>
