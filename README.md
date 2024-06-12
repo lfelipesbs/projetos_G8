@@ -56,7 +56,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 </a>
 <br> 
 <br>
-<h2> Screencast 02 do Figman de Media (link na imagem)</h2> 
+<h2> Screencast 02 do Figma de Media (link na imagem)</h2> 
 <a href="https://www.youtube.com/watch?v=UFyRvcXnNZo">
   <img src="/imagem/imagem_Site.png" />
 </a>
