@@ -281,7 +281,7 @@
             <p style="color: red;">{{ erro }}</p>
         {% endif %}
         {% if mensagem_sucesso %}
-            <p style="color: green;">{{ mensagem_sucesso }}</p>
+            <p style="color: rgb(255, 255, 255);">{{ mensagem_sucesso }}</p>
         {% endif %}
         <form action="/adicionar_dica/" method="post">
             {% csrf_token %}
