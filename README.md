@@ -106,6 +106,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <img src="/imagem/bugtracker6.jpg"  width="500" height="200"/>
 <img src="Captura de tela 2024-06-10 143104.png" width="500" height="200"/>
 <img src="Captura de tela 2024-06-10 143125.png" width="500" height="200"/>
+<img src="Captura de tela 2024-06-11 131605.png" width="500" height="200"/>
 <br> 
 
 
