@@ -24,12 +24,18 @@
             align-items: center;
         }
 
+        label {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 5px;
+        }
         h3 {
             color: white;
         }
 
         h2 {
-            color: black;
+            color: rgb(255, 255, 255);
         }
         h1 {
             color: white;
@@ -66,7 +72,53 @@
             display: inline;
             margin-right: 20px;
         }
-
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgb(0, 255, 30);
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+        
+        input[type="text"]{
+            margin-top: 8px;
+            width: 40%;
+            height: 30px;
+        }
+        
+        input[type="date"] {
+            margin-top: 20px;
+            width: 40%;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: #333;
+            outline: none;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        input[type="date"]:focus {
+            border-color: #0d8c46;
+            box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+        }
+        
+        input[type="date"]:hover {
+            border-color: #0d8c46;
+        }
         .button {
             background-color: #007BFF; /* Blue background for the button */
             color: white;
@@ -151,17 +203,57 @@
 
         .ocorrencia img {
             max-width: 50%; /* Ajusta o tamanho da imagem */
-            max-height: 200px
+            max-height: 200px;
             display: block;
-            margin-top: 10px;
+            margin-top: 40px;
         }
 
-        #ocorrencias {
-            width: 80%;
-            margin: 120px auto 20px; /* Ajuste para margem superior e inferior */
-            padding: 20px 0;
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            width: 42%;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin: 0 auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px 20px;
+            margin-top: 10px;
         }
-        
+        #ocorrencias {
+            color: white;
+            display: inline-block;
+            background-color: #0d8c46;
+            box-sizing: border-box;
+            margin-top: 170px;
+            padding: 20px;
+            color: black;
+            text-decoration: solid;
+            margin-left: auto;
+            margin-right: auto;
+            width: 45%;
+            border-radius: 10px;
+        }
+        h3{
+            color: black;
+        }
+        #pos_click{
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+
+        }
+        button#pos_click{
+            background-color: #0d8c46;
+        }
+        img{
+            align-items: center;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -177,40 +269,42 @@
     <div id="ocorrencias">
         <h2>Ocorrências</h2>
         <form method="GET" action="">
-            <label for="data_filtro">Filtrar por Data:</label>
-            <input type="date" id="data_filtro" name="data_filtro">
+            <label for="data_filtro">Filtrar por Data:</label><br>
+            <input type="date" id="data_filtro" name="data_filtro"><br>
             <input type="submit" value="Filtrar">
         </form>
         <form method="GET" action="">
-            <label for="endereco_filtro">Filtrar por Endereço:</label>
-            <input type="text" id="endereco_filtro" name="endereco_filtro">
-            <input type="submit" value="Filtrar">
+            <label for="endereco_filtro">Filtrar por Endereço:</label><br>
+            <input type="text" id="endereco_filtro" name="endereco_filtro"><br>
+            <input type="submit" value="Filtrar"> <br>
         </form>
         {% if ocorrencias %}
             {% for ocorrencia in ocorrencias %}
             <div class="ocorrencia">
-                <h4>{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }} - {{ ocorrencia.data }}</h4>
+                <h4 style="text-align: center;">{{ ocorrencia.descricao }} - {{ ocorrencia.endereco }} - {{ ocorrencia.tipo_de_lixo }} - {{ ocorrencia.data }}</h4>
                 {% if ocorrencia.imagem %}
-                <img src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
-                <div>
-                    <button onclick="showDenunciaForm({{ ocorrencia.id }})">Denunciar</button>
-                    <form id="denuncia-form-{{ ocorrencia.id }}" style="display: none;" action="{% url 'denunciar_ocorrencia' ocorrencia.id %}" method="post">
-                        {% csrf_token %}
-                        <label for="motivo">Motivo da Denúncia:</label>
-                        <textarea id="motivo" name="motivo" required></textarea>
-                        <button type="submit">Enviar Denúncia</button>
-                    </form>
-                </div>
-                <div>
-                    <button onclick="showAvaliacaoForm({{ ocorrencia.id }})">Avaliar</button>
-                    <form id="avaliacao-form-{{ ocorrencia.id }}" style="display: none;" action="{% url 'avaliar_ocorrencia' ocorrencia.id %}" method="post">
-                        {% csrf_token %}
-                        <label for="avaliacao">Avaliação (1-5):</label>
-                        <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required>
-                        <label for="observacoes">Observações:</label>
-                        <textarea id="observacoes" name="observacoes" required></textarea>
-                        <button type="submit">Enviar Avaliação</button>
-                    </form>
+                <img style="text-align: center;" src="{{ ocorrencia.imagem.url }}" alt="Imagem da Ocorrência"><br>
+                <div id="pos_click">
+                    <div>
+                        <button onclick="showDenunciaForm({{ ocorrencia.id }})">Denunciar</button>
+                        <form id="denuncia-form-{{ ocorrencia.id }}" style="display: none;" action="{% url 'denunciar_ocorrencia' ocorrencia.id %}" method="post">
+                            {% csrf_token %}
+                            <h3 for="motivo">Motivo da Denúncia:</h3><br>
+                            <textarea id="motivo" name="motivo" required></textarea><br>
+                            <button type="submit">Enviar Denúncia</button><br>
+                        </form>
+                    </div>
+                    <div>
+                        <button onclick="showAvaliacaoForm({{ ocorrencia.id }})">Avaliar</button>
+                        <form id="avaliacao-form-{{ ocorrencia.id }}" style="display: none;" action="{% url 'avaliar_ocorrencia' ocorrencia.id %}" method="post">
+                            {% csrf_token %}
+                            <h3 for="avaliacao">Avaliação (1-5):</h3><br>
+                            <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required>
+                            <h3 for="observacoes">Observações:</h3><br>
+                            <textarea id="observacoes" name="observacoes" required></textarea>
+                            <br><button type="submit">Enviar Avaliação</button><br>
+                        </form>
+                    </div>
                 </div>
                 {% endif %}
             </div>
