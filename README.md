@@ -69,8 +69,8 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <br>
 <br>
 <h2> Diagrama de Atividades </h2> 
-<a href="/imagem/foto_do_diagrama_de_atividades.png">
-  <img src="/imagem/foto_do_diagrama_de_atividades.png" />
+<a href="https://miro.com/app/board/uXjVK9G8MVg=/">
+  <img src="/imagem/Screenshot%202024-06-11%20224641.png" />
 </a>
 <br> 
 <br>
