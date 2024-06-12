@@ -81,12 +81,6 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <br> 
 <br>
 <br>
-<h2> Screencast 02 do Site (link na imagem)</h2> 
-<a href="https://www.loom.com/share/1a9d51f21d434de4ae08528ff912f921?sid=0bb37e7b-18b0-4109-a111-74476d766a20">
-  <img src="/imagem/imagem_Site.png" width="500" height="500"" />
-</a>
-<br> 
-<br>
 <h2> Diagrama de Atividades </h2> 
 <a href="https://miro.com/app/board/uXjVK9G8MVg=/">
   <img src="/imagem/Screenshot%202024-06-11%20224641.png" width="500" height="500"" />
