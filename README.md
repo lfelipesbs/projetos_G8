@@ -86,7 +86,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
   <img src="/imagem/Screenshot%202024-06-11%20224641.png" width="500" height="500"" />
 </a>
 <h2> Screencast das historias</h2>
-<a href="https://www.loom.com/share/32913b85581748f3a2f85f27300da400?sid=ccb70fc5-8eb8-421c-917f-cb6f6503b5c4">Screencast do site</a>
+<a href="https://www.loom.com/share/7dd4933571d44f0c993f9d35e0bdf948?sid=ab23f09e-e1f5-4b9d-b4be-b90f7511a866">Screencast do site</a>
 <br> 
 <br>
 <br>
