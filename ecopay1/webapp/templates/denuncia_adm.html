@@ -151,18 +151,31 @@
         }
 
         .ocorrencia img {
-            max-width: 50%; /* Ajusta o tamanho da imagem */
-            max-height: 200px
+            max-width: 50%; 
+            max-height: 200px;
             display: block;
             margin-top: 10px;
         }
 
         #ocorrencias {
+            background-color: ;
             width: 80%;
+            margin: 0 auto;
             margin-top: 300px; /* Ajuste para margem superior e inferior */
             padding: 20px 0;
+            margin-top: 220px;
+            padding: 20px;
+            background-color: #0d8c46;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
+        h2{
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -181,7 +194,7 @@
         <p><strong>Ocorrência:</strong> {{ denuncia.ocorrencia.descricao }}</p>
         <p><strong>Endereço:</strong> {{ denuncia.ocorrencia.endereco }}</p>
         <p><strong>Tipo de Lixo:</strong> {{ denuncia.ocorrencia.tipo_de_lixo }}</p>
-        <img src="{{ denuncia.ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
+        <img style="width: 40%;" src="{{ denuncia.ocorrencia.imagem.url }}" alt="Imagem da Ocorrência">
         <h3>Detalhes da Denúncia</h3>
         <p>{{ denuncia.motivo }}</p>
     </div>
