@@ -43,7 +43,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <br> 
 <br>
 <br>
-<h2> Screencast 01 do figma (link na imagem)</h2> 
+<h2> Screencast 01 do figma de baixa (link na imagem)</h2> 
 <a href="https://www.loom.com/share/1ebdf1b7ab594e818d0100145a85cc76?sid=8d1db89a-919b-4673-b372-d9e82329d850">
   <img src="/imagem/foto_figma.png" />
 </a>
@@ -52,6 +52,12 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <br>
 <h2> Screencast 01 do Site (link na imagem)</h2> 
 <a href="https://www.loom.com/share/1a9d51f21d434de4ae08528ff912f921?sid=0bb37e7b-18b0-4109-a111-74476d766a20">
+  <img src="/imagem/imagem_Site.png" />
+</a>
+<br> 
+<br>
+<h2> Screencast 02 do Figman de Media (link na imagem)</h2> 
+<a href="https://www.youtube.com/watch?v=UFyRvcXnNZo">
   <img src="/imagem/imagem_Site.png" />
 </a>
 <br> 
