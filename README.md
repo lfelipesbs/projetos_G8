@@ -71,7 +71,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 <br> 
 <br>
 
-<h1> SR2 
+# SR2 
 <br>
 
 <h2> Screencast 02 do Figma de Media (link na imagem)</h2> 
