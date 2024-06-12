@@ -17,7 +17,7 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
 * Felipe Texeira (lftm@cesar.school)
 * Rodrigo Nunes (rbnm@cesar.school)
 * Silvio Fittipaldi (sfm@cesar.school)
-
+              
 <p>Links </p>
     <li>
  <a  href=https://docs.google.com/document/d/11aEB7wAGbuErokucf3L3qPKIhUC6PqsAlskm6jNbng0/edit#heading=h.gip33b3r0qy2=/
@@ -26,6 +26,11 @@ Olá, bem-vindo ao repositório do projeto_g8! Desenvolvido por estudantes da Ce
           <li>
   <a  href=https://miro.com/app/board/uXjVNmC7R-U=/
       >Link do Miro (idealização do projeto)</a
+ 
+          <li>
+                        <li>
+  <a  href=https://miro.com/app/board/uXjVK9G8MVg=//
+      >Link do Miro (diagrama de atividades)</a
    >
           <li>
     <a href=https://projetofds.atlassian.net/jira/software/projects/EC/boards/3?atlOrigin=eyJpIjoiYmE0MmMxMjc2OTg3NGY2NWE0Yjk4OTlmYzc3ZmU5OTAiLCJwIjoiaiJ9=/
